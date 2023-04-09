@@ -1,3 +1,35 @@
+#image{
+  height: 10cm;
+}
+.topbar{
+  margin-left: 1cm;
+  position: relative;
+}
+p#top{
+  position: relative;
+  margin-top:-10px;
+  margin-left: -7cm;
+  display: flex;
+  justify-content: center;
+}
+.top{
+  font-family:Khula;
+  color: black;
+  margin-left: 100px;
+  font-size: 18px;
+  text-decoration: none;
+  position: relative;
+  /* align-items: center; */
+}
+.top:hover{
+  text-decoration-line: underline;
+}
+#search{
+  position: relative;
+  margin-left: 1cm;
+  /* border-radius: px; */
+  /* border */
+}
 .navbar {
     height: 225px;
     width: 1267px;
