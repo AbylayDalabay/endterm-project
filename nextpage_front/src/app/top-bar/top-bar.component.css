@@ -1,16 +1,26 @@
 #image{
-  height: 10cm;
+  height: 50px;
+  position: relative;
+  width: 180px;
+  /* display: flex; */
+  /* margin-top: 0.4cm; */
 }
 .topbar{
+  margin-top: 20px;
   margin-left: 1cm;
   position: relative;
+  height: 2.65cm;
+  width: 35cm;
+  /* background-color: black; */
 }
 p#top{
   position: relative;
-  margin-top:-10px;
-  margin-left: -7cm;
+  margin-top:-36px;
+  margin-left: 6cm;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* width: 20cm; */
+  /* background-color: #000000; */
 }
 .top{
   font-family:Khula;
@@ -26,9 +36,31 @@ p#top{
 }
 #search{
   position: relative;
-  margin-left: 1cm;
+  margin-left: 2.3cm;
+  width: 7cm;
+  height: 0.7cm;
+  margin-top: -8px;
+  border-style: solid;
+  border-radius: 8px;
   /* border-radius: px; */
   /* border */
+}
+#login{
+  position: relative;
+  margin-left: 31cm;
+  height: 1cm;
+  /* margin-top:-4cm; */
+  margin-top: -1.45cm;
+  /* display: flex; */
+}
+#login:hover{
+}
+input[type="text"]{
+  padding-left: 10px;
+}
+a#log{
+  display: flex;
+  width: 0.2cm;
 }
 .navbar {
     height: 225px;
