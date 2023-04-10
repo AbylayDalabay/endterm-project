@@ -47,20 +47,34 @@ p#top{
 }
 #login{
   position: relative;
-  margin-left: 31cm;
+  /* margin-left: 31cm; */
   height: 1cm;
-  /* margin-top:-4cm; */
+  margin-left: 1cm;
+  /* margin-top:-cm; */
   margin-top: -1.45cm;
-  /* display: flex; */
+  display: flex;
 }
 #login:hover{
 }
 input[type="text"]{
   padding-left: 10px;
 }
-a#log{
-  display: flex;
-  width: 0.2cm;
+div#log{
+  margin-left: 32cm;
+  height: 1.3cm;
+}
+.loginProfile{
+  margin-left: -0.8cm;
+  background-color: rgb(249, 249, 249);
+  width: 166px;
+  height: 47px;
+  border-color: white;
+  border-radius: 0.1px;
+  border-width: 0.01px;
+  border-style: none;
+}
+.loginProfile:hover{
+  background-color: #bdbdbd;
 }
 .navbar {
     height: 225px;
