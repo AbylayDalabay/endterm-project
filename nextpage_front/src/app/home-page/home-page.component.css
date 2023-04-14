@@ -48,3 +48,61 @@ div#right{
     font-size: 20px;
     line-height: 158.2%;
 }
+div#rec{
+    margin-top: 50px;
+}
+div#recBooks{
+    margin-top: 80px;
+    /* width: ; */
+    margin-left: -13px;
+}
+#book{
+    width: 195px;
+    height: 296px;
+    margin-left: 13px;
+}
+p#reco{
+    font-family: 'Prompt';
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 38px;
+}
+div#pop{
+    margin-left: 760px;
+    margin-top: -446px;
+}
+#popu{
+    margin-bottom: 82px;
+    font-family: 'Prompt';
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 38px;
+}
+#popBlock{
+    /* margin-top: 80px; */
+    width: 427px;
+    height: 276px;
+    border-radius: 8px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+#po{
+    margin-top: -10px;
+    width: 391px;
+    line-height: 2px;
+}
+#Bname,#Bauthor{
+    font-family: 'Prompt-bold';
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 38px;
+    margin-left: 10px;
+    margin-top: 10px;
+    /* margin-top: -1px; */
+}
+#Bauthor{
+    font-family: 'Prompt';
+    font-size: 20px;
+    margin-top: -30px;
+}
