@@ -8,6 +8,9 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { ReviewComponent } from './review/review.component';
 
+import { HomePageComponent } from './home-page/home-page.component';
+// origin/home-page
+
 @NgModule({
   declarations: [
     AppComponent,
