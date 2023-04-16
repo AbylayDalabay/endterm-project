@@ -1,34 +1,99 @@
 #image{
-  height: 10cm;
+  height: 50px;
+  position: relative;
+  width: 180px;
+  /* display: flex; */
+  /* margin-top: 0.4cm; */
 }
 .topbar{
-  margin-left: 1cm;
+  margin-top: 20px;
+  margin-left: 4cm;
   position: relative;
+  height: 2.65cm;
+  width: 35cm;
+  /* background-color: black; */
 }
 p#top{
   position: relative;
-  margin-top:-10px;
-  margin-left: -7cm;
+  margin-top:-36px;
+  margin-left: 6cm;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* width: 20cm; */
+  /* background-color: #000000; */
 }
 .top{
   font-family:Khula;
   color: black;
-  margin-left: 100px;
+  margin-left: 80px;
   font-size: 18px;
   text-decoration: none;
   position: relative;
+  font-weight: lighter;
+  display: inline-block;
   /* align-items: center; */
+}
+/* Вот здесь для подчеркивания снизу */
+.top::after{ 
+  content:'';
+  background-color: #000000;
+  position: absolute;
+  width: 40%;
+  left:0;
+  height: 0.7px;
+  bottom: 0;
 }
 .top:hover{
   text-decoration-line: underline;
+  text-underline-offset: 4.2px;
+  text-decoration-thickness: 1px;
+}
+.underline::before{
+  width: 30%;
 }
 #search{
   position: relative;
-  margin-left: 1cm;
+  margin-left: 2.3cm;
+  width: 7cm;
+  height: 0.8cm;
+  margin-top: -19px;
+  border-style: solid;
+  border-radius: 8px;
+  border-width: 1.6px;
   /* border-radius: px; */
   /* border */
+}
+#login{
+  position: relative;
+  /* margin-left: 31cm; */
+  height: 1cm;
+  margin-left: 1cm;
+  /* margin-top:-cm; */
+  margin-top: -1.45cm;
+  display: flex;
+}
+#login:hover{
+}
+input[type="text"]{
+  padding-left: 19px;
+  padding-top: 4px;
+}
+div#log{
+  margin-left: 31cm;
+  height: 1.3cm;
+}
+.loginProfile{
+  margin-left: -2.2cm;
+  background-color: rgb(249, 249, 249);
+  width: 166px;
+  height: 47px;
+  border-color: white;
+  border-radius: 0.1px;
+  border-width: 0.01px;
+  border-style: none;
+}
+.loginProfile:hover{
+  background-color: #bdbdbd;
 }
 .navbar {
     height: 225px;
