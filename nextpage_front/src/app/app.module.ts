@@ -9,7 +9,9 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { ReviewComponent } from './review/review.component';
 
 import { HomePageComponent } from './home-page/home-page.component';
-// origin/home-page
+
+import { AboutPageComponent } from './about-page/about-page.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     TopBarComponent,
     SignUpPageComponent,
     SignInPageComponent,
-    ReviewComponent
+    ReviewComponent,
+    HomePageComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
