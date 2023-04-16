@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
+    HomePageComponent
     SignUpPageComponent,
     SignInPageComponent,
     AboutPageComponent
