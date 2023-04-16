@@ -4,6 +4,10 @@
     src: url('src/assets/Prompt-Light.ttf');
 }
 @font-face {
+    font-family: 'Prompt-Black';
+    src: url('src/assets/Prompt-Black.ttf');
+}
+@font-face {
     font-family: 'Prompt-bold';
     src: url('src/assets/Prompt-SemiBold.ttf');
 }
