@@ -15,3 +15,7 @@
     font-family: 'Prompt-medium';
     src: url('src/assets/Prompt-Medium.ttf');
 }
+@font-face {
+    font-family: 'Khula';
+    src: url('src/assets/Khula-Regular.ttf');
+}
