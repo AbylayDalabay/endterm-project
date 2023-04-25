@@ -6,7 +6,9 @@ from django.db import models
 class Category(models.Model):
     def __str__(self):
         return f'{self.name}'
-
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=255)
 
@@ -22,7 +24,6 @@ class Category(models.Model):
 class Book(models.Model):
     def __str__(self):
         return f'{self.id}  {self.title}'
-
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
