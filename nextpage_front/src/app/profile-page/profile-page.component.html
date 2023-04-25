@@ -1,0 +1,25 @@
+<app-top-bar></app-top-bar>
+<div id="pro">
+    <fieldset id="about">
+        <p id="user">yerkennz</p>
+        <p id="name">Nursultan Yerkenov</p>
+        <div><img src="/assets/images/star.png" id="star"> <p id="fr">My friends</p></div>
+        <div *ngIf="myProfile==false"><img src="/assets/images/mail.png" id="mail"> <p id="ma">yerken1656@gmail.com</p></div>
+        <div *ngIf="myProfile==true"><img src="/assets/images/add.png" id="add"> <p id="ad">Add to friends</div>
+        <div><img src="/assets/images/shelf.png" id="shelf"> <p id="sh">Books</p></div>
+    </fieldset>
+    <fieldset id="stats">
+        <p id="stat">Stats</p>
+        <p id="cur">Currently reading: 5 books</p>
+        <p id="alr">Already read books: 73 books</p>
+        <p id="wil">Willing to read books: 7 books</p>
+    </fieldset>
+    <fieldset id="find">
+        <p id="fin">Find user</p>
+        <div id="poisk">
+            <p id="username">username:</p>
+            <input type="text" id="search">
+        </div>
+    </fieldset>
+</div>
+<app-footer></app-footer>

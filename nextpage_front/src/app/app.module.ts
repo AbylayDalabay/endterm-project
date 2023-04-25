@@ -11,6 +11,8 @@ import { ReviewComponent } from './review/review.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 import { AboutPageComponent } from './about-page/about-page.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { AboutPageComponent } from './about-page/about-page.component';
     SignInPageComponent,
     ReviewComponent,
     HomePageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    FooterComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
