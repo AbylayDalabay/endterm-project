@@ -13,6 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { CatalogComponent } from './catalog/catalog.component';
 
 import { FormsModule } from '@angular/forms';
 import { InfoBookComponent } from './info-book/info-book.component';
@@ -28,6 +29,7 @@ import { InfoBookComponent } from './info-book/info-book.component';
     AboutPageComponent,
     FooterComponent,
     ProfilePageComponent,
+    CatalogComponent,
     InfoBookComponent
   ],
   imports: [
