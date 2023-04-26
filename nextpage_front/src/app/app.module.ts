@@ -16,6 +16,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 import { FormsModule } from '@angular/forms';
 import { InfoBookComponent } from './info-book/info-book.component';
+import { BookPageComponent } from './book-page/book-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InfoBookComponent } from './info-book/info-book.component';
     AboutPageComponent,
     FooterComponent,
     ProfilePageComponent,
-    InfoBookComponent
+    InfoBookComponent,
+    BookPageComponent
   ],
   imports: [
     BrowserModule,
