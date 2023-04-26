@@ -10,6 +10,7 @@ import { ReviewComponent } from './review/review.component';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
+import { ManageAccountComponent } from './manage-account/manage-account.component';
 // origin/home-page
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReviewPageComponent } from './review-page/review-page.component';
     SignUpPageComponent,
     SignInPageComponent,
     ReviewComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    ManageAccountComponent
   ],
   imports: [
     BrowserModule,
