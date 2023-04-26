@@ -1,4 +1,19 @@
 <app-top-bar></app-top-bar>
 <div style="margin-left: 120px;">
     <app-info-book></app-info-book>
+    <div id="main">
+        <div class="rating" > 
+            <div class="rating_item" data-item-value="5" (click)="changeRate(5)">★</div>
+            <div class="rating_item" data-item-value="4" (click)="changeRate(4)">★</div>
+            <div class="rating_item" data-item-value="3" (click)="changeRate(3)">★</div>
+            <div class="rating_item" data-item-value="2" (click)="changeRate(2)">★</div>
+            <div class="rating_item" data-item-value="1" (click)="changeRate(1)">★</div>
+            <!-- <input type="radio" id="rating1"> <label for="rating1" class="fa fa-star"></label>
+            <label id="second">☆</label> 
+            <label id="third">☆</label> 
+            <label id="fourth">☆</label> 
+            <label id="fifth">☆</label> -->
+        </div>
+    </div> 
 </div>
+<!-- ☆ -->
