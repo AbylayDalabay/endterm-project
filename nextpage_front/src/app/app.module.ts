@@ -9,6 +9,7 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { ReviewComponent } from './review/review.component';
 
 import { HomePageComponent } from './home-page/home-page.component';
+import { ReviewPageComponent } from './review-page/review-page.component';
 // origin/home-page
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     TopBarComponent,
     SignUpPageComponent,
     SignInPageComponent,
-    ReviewComponent
+    ReviewComponent,
+    ReviewPageComponent
   ],
   imports: [
     BrowserModule,
