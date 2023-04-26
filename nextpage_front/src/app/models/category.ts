@@ -18,3 +18,10 @@ export interface Category{
         name: string;
 
 }
+
+export const categories = [
+        {
+                id: 1,
+                name: "Novel"
+        }
+]

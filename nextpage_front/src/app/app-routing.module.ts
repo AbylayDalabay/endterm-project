@@ -5,6 +5,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component'
+import { BookPageComponent } from './book-page/book-page.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'signin', component: SignInPageComponent},
   {path: 'signup', component: SignUpPageComponent},
   {path: 'profile', component: ProfilePageComponent},
+  {path: 'book', component: BookPageComponent},
   {path: '', redirectTo: 'about', pathMatch: 'full'}
 ];
 
