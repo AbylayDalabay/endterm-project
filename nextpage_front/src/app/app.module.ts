@@ -14,6 +14,8 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 
+import { FormsModule } from '@angular/forms';
+import { InfoBookComponent } from './info-book/info-book.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     HomePageComponent,
     AboutPageComponent,
     FooterComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    InfoBookComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
