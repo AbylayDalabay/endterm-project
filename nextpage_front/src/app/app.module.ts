@@ -17,6 +17,9 @@ import { CatalogComponent } from './catalog/catalog.component';
 
 import { FormsModule } from '@angular/forms';
 import { InfoBookComponent } from './info-book/info-book.component';
+import { MyBookComponent } from './my-book/my-book.component';
+import { CatalogListComponent } from './catalog-list/catalog-list.component';
+import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { InfoBookComponent } from './info-book/info-book.component';
     FooterComponent,
     ProfilePageComponent,
     CatalogComponent,
-    InfoBookComponent
+    InfoBookComponent,
+    MyBookComponent,
+    CatalogListComponent,
+    CatalogBooksComponent
   ],
   imports: [
     BrowserModule,

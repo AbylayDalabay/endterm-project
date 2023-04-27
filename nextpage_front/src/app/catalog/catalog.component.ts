@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Book, books } from '../models/book';
 import { Category } from '../models/category';
 
@@ -9,9 +9,15 @@ import { Category } from '../models/category';
 })
 export class CatalogComponent {
 
-  category_name = "Current catalg" ;//input
+  @Input() catalog_name: string;
+
+  // catalog_name = "Current catalg" ;//input
   list_book = books;
 
+  constructor() {
+    this.catalog_name = '';
+    
+  }
   
 
 }

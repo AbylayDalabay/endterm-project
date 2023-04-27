@@ -1,7 +1,7 @@
-<a href="" class="c_name">{{category_name}}</a>
+<a routerLink="/catalogs/{{catalog_name}}" class="c_name">{{catalog_name}}</a>
 
 <div class="main">
-        <a *ngFor="let book of list_book" class="card" href=""> 
+        <a *ngFor="let book of list_book" class="card" routerLink="/book/{{book.id}}/"> 
                 <img src="{{book.img}}" alt="{{book.title}}" class="bookimg">
         </a>
 </div>
