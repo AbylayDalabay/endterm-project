@@ -18,6 +18,8 @@
     height: 210px;
     margin-left: 723px;
     margin-top: -398px;
+    z-index: 1;
+    position: relative;
 }
 #find{
     margin-top: 10px;

@@ -30,10 +30,10 @@
     <p id="top"> <a href="" class="top">HOME</a> <a href="" class="top">CATALOG</a> <a href="" class="top">MY&nbsp;BOOKS</a> <input type="text" placeholder="Search all books.." id="search"></p>
     <div id="log">
       <input type="image" src="assets/images/login1.png" id="login" (click)="showBar()">
-      <div *ngIf="check==true">
-        <button class="loginProfile">Profile</button>
-        <button class="loginProfile">Manage account</button>
-        <button class="loginProfile">Sign out</button>
+      <div *ngIf="check==true" id="loginProfile">
+        <button class="loginProfile1">Profile</button>
+        <button class="loginProfile2">Manage account</button>
+        <button class="loginProfile3">Sign out</button>
       </div>
     </div>
   </div>
