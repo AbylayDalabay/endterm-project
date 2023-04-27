@@ -7,7 +7,18 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
     check = false;
+    findBook : string = '';
+    // constructor(private bookService: bookService){
+    
+    // }
     showBar(){
       this.check = !this.check;
     }
+    // addCompany(){
+    //   this.bookService.findBook(this.findBook).subscribe((book) => {
+    //     if(book.name == this.findBook){
+
+    //     }
+    //   })
+    // }
 }
