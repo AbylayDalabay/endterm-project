@@ -22,6 +22,10 @@
     cursor: pointer;
     transition:.2s;
 }
+.rating_item_ex{
+    color: yellow;
+    font-size:40px;
+}
 .rating_item:hover,
 .rating_item:hover ~ .rating_item{
     color: orange;
@@ -33,4 +37,47 @@
 .rating[data-total-value='4'] .rating_item:nth-child(n + 2),
 .rating[data-total-value='5'] .rating_item:nth-child(n + 1){
     color:yellow;
+}
+
+#select{
+    margin-top: 10px;
+    border-radius: 8px;
+    /* border: 1px solid #000000; */
+    width: 263px;
+    height: 42px;
+    font-family: 'Prompt';
+    font-size: 20px;
+    padding-left: 5.32%;
+}
+#option{
+    border-radius: 8px;
+    margin-top: 10px;
+    position: absolute;
+}
+#rev{
+    cursor: pointer;
+    font-family: 'Prompt';
+    font-size: 20px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 16px;
+}
+#rev:hover{
+    text-decoration:underline;
+}
+#edit{
+    width: 19px;
+    height: 19px;
+    /* margin-left: 123px; */
+    margin-bottom: -3px;
+}
+#ReviewBlock{
+    margin-left: 8.85cm;
+
+}
+#Reviews{
+    font-family: 'Prompt';
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
 }

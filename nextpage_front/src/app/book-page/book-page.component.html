@@ -1,6 +1,11 @@
 <app-top-bar></app-top-bar>
 <div style="margin-left: 120px;">
     <app-info-book></app-info-book>
+    <div id="ReviewBlock">
+        <p id="Reviews">Reviews</p>
+        <app-review></app-review>
+        <!-- <div *ngFor="review of reviews"></div> -->
+    </div>
     <div id="main">
         <div class="rating" > 
             <div class="rating_item" data-item-value="5" (click)="changeRate(5)">★</div>
@@ -14,6 +19,19 @@
             <label id="fourth">☆</label> 
             <label id="fifth">☆</label> -->
         </div>
+        <div>
+            <select id="select" (change)="saveOption()">
+                <option value="add book" id="option">add book</option>
+                <option value="currently reading" id="option">currently reading</option>
+                <option value="want to read" id="option">want to read</option>
+                <option value="already read" id="option">already read</option>
+            </select>
+        </div>
+        <div>
+            <label class="rating_item_ex">★</label><a id="rev">add review <img src="/assets/images/edit.png" id="edit"></a>
+            <!-- <img src="/assets/images/edit.png" id="edit"> -->
+        </div>
     </div> 
 </div>
+<!-- <div>Rating</div> -->
 <!-- ☆ -->
