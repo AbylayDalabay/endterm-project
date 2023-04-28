@@ -57,3 +57,4 @@ export const CATALOG_LISTS: Catalog[] = [
         { id: 4, name: 'Planned', userId: 1 },
         { id: 5, name: 'Reading', userId: 1 },
 ];
+

@@ -28,7 +28,7 @@ div#right{
 }
 #descr{
     width: 679px;
-    height: 193px;
+    height: auto;
     border-radius: 8px;
 }
 #lab{
@@ -37,4 +37,10 @@ div#right{
     font-weight: 300;
     font-size: 20px;
     line-height: 158.2%;
+}
+#show{
+    font-style: italic;
+}
+#show:hover{
+    text-decoration: underline;
 }
