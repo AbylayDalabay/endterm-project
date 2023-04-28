@@ -46,6 +46,7 @@ export const books = [
                 category: categories[1],
                 img:'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1373225763l/17320689.jpg',
                 description: 'asdasdasdasd as dsa dd sad asd asd sad sad sad sadasdasdas  dsadasdasdas  dsadasdasdasdasd  sadasdasdasdasdasd  sadasdsadasdasdasd dasdsadasd dsadasdas dsadasdasd sadsa sadasd asdasd asd asdasdasdsad a asdasdasdasdasdas sad asdasddas',
+
                 rating: 3
         },
         {
