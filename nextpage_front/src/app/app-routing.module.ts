@@ -9,19 +9,26 @@ import { MyBookComponent } from './my-book/my-book.component';
 import { InfoBookComponent } from './info-book/info-book.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
 
-  {path: 'home', component: HomePageComponent},
-  {path: 'about', component: AboutPageComponent},
-  {path: 'signin', component: SignInPageComponent},
+  {path: 'home', component: HomePageComponent, canActivate: [AuthGuard],},
+  {
+    path: 'about',
+    component: AboutPageComponent,
+  },
+  {path: 'signin',
+    component: SignInPageComponent,
+
+  },
   {path: 'signup', component: SignUpPageComponent},
-  {path: 'profile/:id', component: ProfilePageComponent},
-  {path: 'mybooks', component: MyBookComponent},
-  {path: 'book/:id', component: InfoBookComponent},
-  {path: 'catalogs', component: CatalogListComponent},
-  {path: 'catalogs/:string', component: CatalogBooksComponent},
-  {path: '', redirectTo: '/about', pathMatch: 'full'}
+  {path: 'profile/:id', component: ProfilePageComponent,canActivate: [AuthGuard],},
+  {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
+  {path: 'book/:id', component: InfoBookComponent,canActivate: [AuthGuard],},
+  {path: 'catalogs', component: CatalogListComponent,canActivate: [AuthGuard],},
+  {path: 'catalogs/:string', component: CatalogBooksComponent,canActivate: [AuthGuard],},
+  {path: '', redirectTo: 'about', pathMatch: 'full'}
 ];
 
 @NgModule({
