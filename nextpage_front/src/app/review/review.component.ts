@@ -7,6 +7,7 @@ import {Review} from "../models/review";
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent {
-  @Input() review: any
-
+  @Input() review: string | undefined;
+  profile: string | undefined;
+  rating: number | undefined;
 }

@@ -36,9 +36,13 @@
 .rating[data-total-value='3'] .rating_item:nth-child(n + 3),
 .rating[data-total-value='4'] .rating_item:nth-child(n + 2),
 .rating[data-total-value='5'] .rating_item:nth-child(n + 1){
-    color:yellow;
+    color:yellow; 
 }
-
+.rating_item_part{
+    background: linear-gradient(to right, yellow 50%, transparent 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 #select{
     margin-top: 10px;
     border-radius: 8px;

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 export class BookPageComponent {
     rate : number = 2;
     selectedOption: string | undefined;
+    add = false;
     ngOnInit(): void{
       const ratingItemsList = document.querySelectorAll('.rating_item');
       const ratingItemsArray = Array.prototype.slice.call(ratingItemsList);

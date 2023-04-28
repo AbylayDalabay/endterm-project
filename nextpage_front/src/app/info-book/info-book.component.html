@@ -4,6 +4,6 @@
     <p id="author">George Orwell</p>
     <p id="des">DESCRIPTION</p>
     <fieldset id="descr">
-        <label id="lab">{{listbook[0].description}}<a *ngIf="check==true" (click)="changeDes()" id="show"> Show more</a><a *ngIf="check==false" (click)="changeDes()" id="show"> Hide text</a></label>
+        <label id="lab">{{listbook[0].description}}<a *ngIf="check==true" id="show"> Show more</a><a *ngIf="check==false" onclick="changeDes()" id="show"> Hide text</a></label>
     </fieldset>
 </div>

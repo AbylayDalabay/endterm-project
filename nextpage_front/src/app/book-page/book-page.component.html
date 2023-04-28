@@ -1,8 +1,8 @@
-<app-top-bar></app-top-bar>
 <div style="margin-left: 120px;">
     <app-info-book></app-info-book>
     <div id="ReviewBlock">
         <p id="Reviews">Reviews</p>
+        <div *ngIf></div>
         <app-review></app-review>
         <!-- <div *ngFor="review of reviews"></div> -->
     </div>
@@ -13,11 +13,6 @@
             <div class="rating_item" data-item-value="3" (click)="changeRate(3)">★</div>
             <div class="rating_item" data-item-value="2" (click)="changeRate(2)">★</div>
             <div class="rating_item" data-item-value="1" (click)="changeRate(1)">★</div>
-            <!-- <input type="radio" id="rating1"> <label for="rating1" class="fa fa-star"></label>
-            <label id="second">☆</label> 
-            <label id="third">☆</label> 
-            <label id="fourth">☆</label> 
-            <label id="fifth">☆</label> -->
         </div>
         <div>
             <select id="select" (change)="saveOption()">
@@ -28,7 +23,7 @@
             </select>
         </div>
         <div>
-            <label class="rating_item_ex">★</label><a id="rev">add review <img src="/assets/images/edit.png" id="edit"></a>
+            <label class="rating_item_ex">★</label><a id="rev" onclick="add=true">add review <img src="/assets/images/edit.png" id="edit"></a>
             <!-- <img src="/assets/images/edit.png" id="edit"> -->
         </div>
     </div> 

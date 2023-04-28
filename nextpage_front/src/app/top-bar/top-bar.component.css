@@ -90,110 +90,36 @@ div#log{
   border-radius: 0.1px;
   border-width: 0.01px;
   border-style: none;
+  
 }
 .loginProfile:hover{
   background-color: #bdbdbd;
 }
-.navbar {
-    height: 225px;
-    width: 1267px;
-    background-color: #ffffff;
-  }
-  .frame-2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 60px;
-  }
-  .component-1 {
-    height: 21px;
-    width: 46px;
-    background-color: #ffffff;
-  }
-  .text-1 {
-    text-align: left;
-    vertical-align: top;
-    font-size: 18px;
-    font-family: Khula;
-    line-height: auto;
-    color: #000000;
-  }
-  .line-1 {
-    height: 0px;
-    width: 18px;
-    border: 1px solid #000000;
-  }
-  .component-3 {
-    height: 21px;
-    width: 72px;
-    background-color: #ffffff;
-  }
-  .text-2 {
-    text-align: left;
-    vertical-align: top;
-    font-size: 18px;
-    font-family: Khula;
-    line-height: auto;
-    color: #000000;
-  }
-  .line-1 {
-    height: 0px;
-    width: 3px;
-    border: 1px solid #000000;
-  }
-  .component-2 {
-    height: 21px;
-    width: 46px;
-    background-color: #ffffff;
-  }
-  .text-3 {
-    text-align: left;
-    vertical-align: top;
-    font-size: 18px;
-    font-family: Khula;
-    line-height: auto;
-    color: #000000;
-  }
-  .line-1 {
-    height: 0px;
-    width: 2px;
-    border: 1px solid #000000;
-  }
-  .logo {
-    height: 225px;
-    width: 438px;
-    background-color: #ffffff;
-  }
-  .img-4 {
-    height: 53px;
-    width: 221px;
-  }
-  .avatar {
-    height: 38px;
-    width: 40px;
-    background-color: #ffffff;
-  }
-  .group {
-    height: 37px;
-    width: 39px;
-  }
-  .img-5 {
-    height: 37px;
-    width: 39px;
-  }
-  .rectangle-1 {
-    border-radius: 10px;
-    height: 44px;
-    width: 319px;
-    background-color: #ffffff;
-    border: 1px solid #000000;
-  }
-  .text-6 {
-    text-align: left;
-    vertical-align: top;
-    font-size: 16px;
-    font-family: Khula;
-    line-height: auto;
-    color: #868686;
-  }
+div#log{
+  margin-left: 31cm;
+  height: 1.3cm;
+}
+#loginProfile{
+  z-index: 2;
+  position: absolute;
+}
+.loginProfile1,.loginProfile2,.loginProfile3{
+  position: fixed;
+  margin-left: -2.2cm;
+  background-color: rgb(249, 249, 249);
+  width: 166px;
+  height: 47px;
+  border-color: white;
+  border-radius: 0.1px;
+  border-width: 0.01px;
+  border-style: none;
+}
+.loginProfile2{
+  margin-top: 47px;
+}
+.loginProfile3{
+  margin-top: 94px;
+}
+.loginProfile1:hover,.loginProfile2:hover,.loginProfile3:hover{
+  background-color: #bdbdbd;
+}
