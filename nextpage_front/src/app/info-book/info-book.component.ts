@@ -11,6 +11,7 @@ export class InfoBookComponent {
     id : number | undefined;
     listbook = books;
     fullDes = this.listbook[0].description;
+
     // myButton: HTMLElement;
     constructor(private route: ActivatedRoute){
     //   this.myButton = document.getElementById('show')!;
@@ -20,6 +21,7 @@ export class InfoBookComponent {
     //   console.log('Button clicked!');
     //   // здесь можно добавить ваш код обработки события
     // }
+
     ngOnInit(): void{
       this.id = Number(this.route.snapshot.paramMap.get('id'));
       if (this.listbook[0].description.length >= 328){

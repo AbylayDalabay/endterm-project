@@ -1,7 +1,9 @@
+
 <div style="margin-left: 120px;">
     <app-info-book></app-info-book>
     <div id="ReviewBlock">
         <p id="Reviews">Reviews</p>
+
         <div *ngIf="add==true">
             <form action="#" method="post">
                 <div class="Posting">
@@ -23,6 +25,7 @@
     <div id="main">
         <div> 
             <label id="rating_item_part">★</label> <label id="rate">Rating: {{rating}}%</label>
+
         </div>
         <div>
             <select id="select" (change)="saveOption()">
@@ -33,7 +36,9 @@
             </select>
         </div>
         <div>
+
             <label class="rating_item_ex">★</label><a id="rev" (click)="add=true">add review <img src="/assets/images/edit.png" id="edit"></a>
+
             <!-- <img src="/assets/images/edit.png" id="edit"> -->
         </div>
     </div> 

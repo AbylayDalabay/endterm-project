@@ -15,7 +15,7 @@
 .rating{
     display: inline-flex;
     flex-direction: row-reverse;
-    /* vertical-align: bottom; */
+
 }
 .rating_item{
     color: grey;
@@ -37,6 +37,7 @@
 .rating[data-total-value='3'] .rating_item:nth-child(n + 3),
 .rating[data-total-value='4'] .rating_item:nth-child(n + 2),
 .rating[data-total-value='5'] .rating_item:nth-child(n + 1){
+
     color:yellow; 
 }
 #rating_item_part{
@@ -53,6 +54,7 @@
     position: absolute;
 
 }
+
 #select{
     margin-top: 10px;
     border-radius: 8px;
@@ -94,6 +96,7 @@
     font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
+
 }
 #reviewPost{
     width: 698px;
@@ -117,4 +120,5 @@
 }
 .Posting > #post,#reviewPost{
     display: block;
+
 }
