@@ -41,6 +41,13 @@ p#top{
   left:0;
   height: 0.7px;
   bottom: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  
+}
+.top:hover::after{
+  transform: scaleX(1);
+        transform-origin: bottom left;
 }
 .top:hover{
   text-decoration-line: underline;

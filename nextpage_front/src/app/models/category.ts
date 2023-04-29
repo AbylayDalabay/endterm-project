@@ -23,6 +23,14 @@ export const categories = [
         {
                 id: 1,
                 name: "Novel"
+        },
+        {
+                id: 2,
+                name: "Comedy"
+        },
+        {
+                id: 1,
+                name: "History"
         }
 ]
 
