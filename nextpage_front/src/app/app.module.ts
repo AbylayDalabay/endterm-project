@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+
+import { FormsModule } from '@angular/forms';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { ReviewComponent } from './review/review.component';
@@ -27,6 +29,7 @@ import { BookPageComponent } from './book-page/book-page.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,7 @@ import { BookPageComponent } from './book-page/book-page.component';
     ReviewComponent,
 
     HomePageComponent,
+
     AboutPageComponent,
     FooterComponent,
     ProfilePageComponent,
@@ -49,6 +53,7 @@ import { BookPageComponent } from './book-page/book-page.component';
     CatalogBooksComponent,
 
      BookPageComponent,
+
 
 
   ],
