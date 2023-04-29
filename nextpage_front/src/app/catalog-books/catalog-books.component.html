@@ -1,1 +1,9 @@
-<p>catalog-books works!</p>
+<p>{{category.name}}</p>
+<div class="main">
+        
+ 
+        <div *ngFor="let book of booklist" class="bookcard">
+                <a routerLink="/book/{{book.id}}"><img src="{{book.img}}" alt="{{book.title}}" class="bookimg"></a>
+                <a routerLink="/book/{{book.id}}"  class="booktitle">{{book.title}}</a>
+        </div>
+</div>
