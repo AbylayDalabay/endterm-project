@@ -7,13 +7,11 @@ body {
 
 .review-block {
 
+  margin-bottom: 18px;
   width: 663px;
   /* height: 231px; */
   /* margin: 3em auto; */
 
-  /*width: 76%;*/
-  /*margin: 3em auto;*/
-  /*margin-bottom: 25px;*/
 
   border-radius: 8px;
   padding-left: 20px;

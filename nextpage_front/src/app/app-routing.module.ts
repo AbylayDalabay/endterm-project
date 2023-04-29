@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'book', component: BookPageComponent},
   {path: 'profile/:id', component: ProfilePageComponent},
   {path: 'mybooks', component: MyBookComponent},
-  {path: 'book/:id', component: InfoBookComponent},
+  {path: 'book/:id', component: BookPageComponent},
   {path: 'catalogs', component: CatalogListComponent},
   {path: 'catalogs/:string', component: CatalogBooksComponent},
 
