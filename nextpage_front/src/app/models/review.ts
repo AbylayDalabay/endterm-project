@@ -12,7 +12,7 @@ export class Review {
                 this.book = book;
         }
 }
-export var reviews = [
+export const reviews = [
         {
                 id: 1,
                 username: "yerkennz", 

@@ -18,7 +18,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CatalogComponent } from './catalog/catalog.component';
-import { FormsModule } from '@angular/forms';
+
 import { InfoBookComponent } from './info-book/info-book.component';
 
 import { BookPageComponent } from './book-page/book-page.component';
@@ -28,7 +28,6 @@ import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
-import { BookPageComponent } from './book-page/book-page.component';
 
 
 
@@ -53,8 +52,7 @@ import { BookPageComponent } from './book-page/book-page.component';
     MyBookComponent,
     CatalogListComponent,
     CatalogBooksComponent,
-
-     BookPageComponent,
+    BookPageComponent,
 
 
 

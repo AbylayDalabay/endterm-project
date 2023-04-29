@@ -33,7 +33,7 @@ const routes: Routes = [
   
   {path: 'profile/:id', component: ProfilePageComponent,canActivate: [AuthGuard],},
   {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
-  {path: 'book/:id', component: InfoBookComponent,canActivate: [AuthGuard],},
+  {path: 'book/:id', component: BookPageComponent,canActivate: [AuthGuard],},
   {path: 'catalogs', component: CatalogListComponent,canActivate: [AuthGuard],},
   {path: 'catalogs/:string', component: CatalogBooksComponent,canActivate: [AuthGuard],},
   

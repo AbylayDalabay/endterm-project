@@ -11,12 +11,13 @@ export class ReviewComponent {
   profile: string | undefined;
   rating: number | undefined;
   @Input()bookId: number | undefined;
-  myList = reviews;
+  
+  mylist = reviews;
   ngOnInit(): void{
-    this.myList = reviews.filter((book) => book.bookId == this.bookId);
+    // this.myList = reviews.filter((book) => book.bookId == this.bookId);
     // alert(this.selectedOption)
     // const selectElement = document.getElementById('select') as HTMLSelectElement;
     // this.selectedOption = selectElement.value;
   }
-  mylist = reviews;
+  
 }
