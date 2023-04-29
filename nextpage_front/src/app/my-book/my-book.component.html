@@ -1,0 +1,9 @@
+<div class="main">
+        <h2>My Lists</h2>
+
+        <div>
+                <div *ngFor="let catalog of catalog_list" class="card">
+                        <app-catalog [catalog_name]="catalog.name"></app-catalog>
+                </div>
+        </div>
+</div>
