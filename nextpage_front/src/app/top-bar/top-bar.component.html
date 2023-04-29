@@ -31,6 +31,12 @@
     <p id="top"> <a routerLink="/home" class="top">HOME</a> <a routerLink="/catalogs" class="top">CATALOG</a> <a routerLink="/mybooks" class="top">MY&nbsp;BOOKS</a> <input type="text" [(ngModel)]="findBook" placeholder="Search all books.." id="search"></p>
     <div id="log">
       <input type="image" src="assets/images/login1.png" id="login" (click)="showBar()">
+
+     <!-- <div *ngIf="check==true" id="loginProfile">
+        <button class="loginProfile1">Profile</button>
+        <button class="loginProfile2">Manage account</button>
+        <button class="loginProfile3">Sign out</button> -->
+
       <div *ngIf="check==true">
         <button routerLink="/profile/1" class="loginProfile">Profile</button>
         <button class="loginProfile">Manage account</button>
@@ -49,6 +55,7 @@
         <button routerLink="/profile/1" class="loginProfile1">Profile</button>
         <button class="loginProfile2">Manage account</button>
         <button class="loginProfile3">Sign out</button>конфликт -->
+
 
       </div>
     </div>

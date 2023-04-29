@@ -88,7 +88,12 @@ div#log{
   margin-left: 31cm;
   height: 1.3cm;
 }
-.loginProfile{
+#loginProfile{
+  z-index: 2;
+  position: absolute;
+}
+.loginProfile1,.loginProfile2,.loginProfile3{
+  position: fixed;
   margin-left: -2.2cm;
   background-color: rgb(249, 249, 249);
   width: 166px;
@@ -99,9 +104,10 @@ div#log{
   border-style: none;
   
 }
-.loginProfile:hover{
-  background-color: #bdbdbd;
+.loginProfile2{
+  margin-top: 47px;
 }
+
 div#log{
   margin-left: 31cm;
   height: 1.3cm;
@@ -124,6 +130,7 @@ div#log{
 .loginProfile2{
   margin-top: 47px;
 }
+
 .loginProfile3{
   margin-top: 94px;
 }
