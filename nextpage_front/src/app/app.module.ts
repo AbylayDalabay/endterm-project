@@ -25,8 +25,10 @@ import { BookPageComponent } from './book-page/book-page.component';
 import { MyBookComponent } from './my-book/my-book.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
-import { BookPageComponent } from './book-page/book-page.component';
 
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./auth.interceptor";
+import { BookPageComponent } from './book-page/book-page.component';
 
 
 
@@ -60,9 +62,16 @@ import { BookPageComponent } from './book-page/book-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
