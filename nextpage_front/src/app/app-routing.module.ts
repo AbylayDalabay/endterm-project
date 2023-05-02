@@ -5,11 +5,14 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component'
+
+import { BookPageComponent } from './book-page/book-page.component';
 import { MyBookComponent } from './my-book/my-book.component';
 import { InfoBookComponent } from './info-book/info-book.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
 import {AuthGuard} from "./guards/auth.guard";
+
 
 const routes: Routes = [
 
@@ -23,11 +26,19 @@ const routes: Routes = [
 
   },
   {path: 'signup', component: SignUpPageComponent},
+
+
+  {path: 'profile', component: ProfilePageComponent},
+  {path: 'book', component: BookPageComponent},
+  
   {path: 'profile/:id', component: ProfilePageComponent,canActivate: [AuthGuard],},
   {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
-  {path: 'book/:id', component: InfoBookComponent,canActivate: [AuthGuard],},
+  {path: 'book/:id', component: BookPageComponent,canActivate: [AuthGuard],},
   {path: 'catalogs', component: CatalogListComponent,canActivate: [AuthGuard],},
   {path: 'catalogs/:string', component: CatalogBooksComponent,canActivate: [AuthGuard],},
+  
+  
+
   {path: '', redirectTo: 'about', pathMatch: 'full'}
 ];
 

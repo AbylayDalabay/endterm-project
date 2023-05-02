@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./sign-in-page.component.css']
 })
 export class SignInPageComponent implements OnInit{
-  username = '';
-  password = '';
+  username :string  = '';
+  password :string = '';
   constructor(private usersService: UsersService,
               private logService: LogService,
               private route: Router) {

@@ -19,4 +19,14 @@ export class UsersService {
       password,
     });
   }
+  register(username: string,firstname: string, lastname: string,
+           password: string, email: string): Observable<AuthToken> {
+    return this.http.post<AuthToken>(`${this.BASE_URL}/register/`, {
+      username,
+      email,
+      password,
+      first_name: firstname,
+      last_name: lastname,
+    });
+  }
 }
