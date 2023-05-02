@@ -46,8 +46,8 @@ export class SignUpPageComponent implements OnInit{
         localStorage.setItem('token', data.token);
         this.username = '';
         this.email = '';
-        // this.lastName = '';
-        // this.firstName = '';
+        this.lastName = '';
+        this.firstName = '';
         this.password = '';
         location.reload();
       }, error => {
