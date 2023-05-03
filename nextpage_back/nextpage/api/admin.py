@@ -55,36 +55,6 @@ class ABCFilterCategory(SimpleListFilter):
             return queryset.order_by('name')
         if self.value() == 'sorted by name reversed':
             return queryset.order_by('-name')
-# class AuthorFilter(SimpleListFilter):
-#     title = 'author'
-#     parameter_name = 'author'
-#     def lookups(self,request,model_admin):
-#         return(
-#             ('sorted by alphabet',('sorted by alphabet')),
-#             ('sorted by alphabet reversed',('sorted by alphabet reversed'))
-#         )
-#     def queryset(self,request,queryset):
-#         if not self.value():
-#             return queryset
-#         if self.value() == 'sorted by alphabet':
-#             return queryset.order_by('author')
-#         if self.value() == 'sorted by alphabet reversed':
-#             return queryset.order_by('-author')
-# class CategoryFilter(SimpleListFilter):
-#     title = 'category'
-#     parameter_name = 'category'
-#     def lookups(self,request,model_admin):
-#         return(
-#             ('sorted by alphabet',('sorted by alphabet')),
-#             ('sorted by alphabet reversed',('sorted by alphabet reversed'))
-#         )
-#     def queryset(self,request,queryset):
-#         if not self.value():
-#             return queryset
-#         if self.value() == 'sorted by alphabet':
-#             return queryset.order_by('category')
-#         if self.value() == 'sorted by alphabet reversed':
-#             return queryset.order_by('-category')
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id','name')
