@@ -13,10 +13,10 @@ class BookSerializer1(serializers.Serializer):
 
 
 class BookSerializer2(serializers.ModelSerializer):
-    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     category_name = serializers.SerializerMethodField(source='get_category_name')
     class Meta:
         model = Book
         fields = ('id', 'title', 'author', 'category_name')
     def get_category_name(self, obj):
         return obj.category.name
+    
