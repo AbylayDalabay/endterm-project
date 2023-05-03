@@ -1,3 +1,4 @@
+import json
 from api.models.book import Book
 from api.models.category import Category
 from django.http.response import HttpResponse, JsonResponse 
@@ -9,9 +10,6 @@ def books(request):
         return JsonResponse(
             serializer.data, safe=False,json_dumps_params={'indent' : 2}
         )
-        # return JsonResponse(
-        #     list(Book.objects.values()), safe=False,json_dumps_params={'indent' : 2}
-        # )
     if request.method == 'POST':
         data = json.loads(request.body)
         book_title = data.get('title','')
