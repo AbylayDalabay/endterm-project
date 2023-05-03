@@ -41,6 +41,13 @@ p#top{
   left:0;
   height: 0.7px;
   bottom: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  
+}
+.top:hover::after{
+  transform: scaleX(1);
+        transform-origin: bottom left;
 }
 .top:hover{
   text-decoration-line: underline;
@@ -95,10 +102,35 @@ div#log{
   border-radius: 0.1px;
   border-width: 0.01px;
   border-style: none;
+  
 }
 .loginProfile2{
   margin-top: 47px;
 }
+
+div#log{
+  margin-left: 31cm;
+  height: 1.3cm;
+}
+#loginProfile{
+  z-index: 2;
+  position: absolute;
+}
+.loginProfile1,.loginProfile2,.loginProfile3{
+  position: fixed;
+  margin-left: -2.2cm;
+  background-color: rgb(249, 249, 249);
+  width: 166px;
+  height: 47px;
+  border-color: white;
+  border-radius: 0.1px;
+  border-width: 0.01px;
+  border-style: none;
+}
+.loginProfile2{
+  margin-top: 47px;
+}
+
 .loginProfile3{
   margin-top: 94px;
 }

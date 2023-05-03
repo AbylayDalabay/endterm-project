@@ -23,6 +23,14 @@ export const categories = [
         {
                 id: 1,
                 name: "Novel"
+        },
+        {
+                id: 2,
+                name: "Comedy"
+        },
+        {
+                id: 1,
+                name: "History"
         }
 ]
 
@@ -57,3 +65,4 @@ export const CATALOG_LISTS: Catalog[] = [
         { id: 4, name: 'Planned', userId: 1 },
         { id: 5, name: 'Reading', userId: 1 },
 ];
+

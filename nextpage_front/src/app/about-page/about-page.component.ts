@@ -8,10 +8,19 @@ import { Category } from '../models/category';
 })
 export class AboutPageComponent implements OnInit{
 
-  categories: Category[] = [];
+  logged = false;
+  constructor() {
+  }
 
   ngOnInit(): void {
-      
+    this.loadUser();
+  }
+
+  loadUser(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.logged = true;
+    }
   }
 
 }
