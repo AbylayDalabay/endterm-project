@@ -1,5 +1,5 @@
 from api.models.book import Book
-from api.serializers import CategorySerializer2
+from api.serializers.category import CategorySerializer2
 from rest_framework import serializers
 
 class BookSerializer1(serializers.Serializer):
@@ -9,11 +9,14 @@ class BookSerializer1(serializers.Serializer):
     description = serializers.CharField()
     img = serializers.CharField()
     pages = serializers.FloatField()
-    category = CategorySerializer2
+    category = CategorySerializer2()
 
 
 class BookSerializer2(serializers.ModelSerializer):
-    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    category_name = serializers.SerializerMethodField(source='get_category_name')
     class Meta:
         model = Book
-        fields = ('id', 'title', 'author', 'category')
+        fields = ('id', 'title', 'author', 'description', 'img', 'pages', 'category','category_name',)
+    def get_category_name(self, obj):
+        return obj.category.name
+    

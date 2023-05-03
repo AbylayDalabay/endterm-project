@@ -10,12 +10,12 @@ class Book(models.Model):
     img = models.CharField(max_length=255)
     description = models.TextField()
     pages = models.IntegerField()
-    def to_json(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'author': self.author,
-            'category': self.category.name,
-            'description': self.description,
-            'pages': self.pages
-        }
+    # def to_json(self):
+    #     return {
+    #         'id': self.id,
+    #         'title': self.title,
+    #         'author': self.author,
+    #         'category': self.category.name,
+    #         'description': self.description,
+    #         'pages': self.pages
+    #     }

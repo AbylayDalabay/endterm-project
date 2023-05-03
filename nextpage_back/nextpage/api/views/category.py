@@ -4,7 +4,10 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from api.serializers.category import CategorySerializer2
+from api.serializers.book import BookSerializer2
 from api.models.category import Category
+from api.models.book import Book
+
 
 
 class CategoryListAPIView(APIView):
@@ -14,9 +17,9 @@ class CategoryListAPIView(APIView):
         return Response(serializer.data)
 
 class CategoryDetailAPIView(APIView):
-    def get_object(self, category_id):
+    def get_object(self, category):
         try:
-            return Category.objects.get(pk=category_id)
+            return Category.objects.get(pk=category)
         except Category.DoesNotExist as e:
             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
@@ -30,5 +33,7 @@ class CategoryDetailAPIView(APIView):
 
 class BooksByCategoryAPIView(APIView):
     def get(self, request, category_id):
-        category = CategoryDetailAPIView.get_object(self, category_id)
+        books = Book.objects.filter(category=category_id)
+        serializer = BookSerializer2(books, many=True)
+        return Response(serializer.data)
         

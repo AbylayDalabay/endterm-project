@@ -12,5 +12,5 @@ class CategorySerializer2(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ('id', 'name')
-
-    
+    def get_name(self):
+        return self.name
