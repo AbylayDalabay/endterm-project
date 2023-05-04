@@ -12,6 +12,8 @@ import { InfoBookComponent } from './info-book/info-book.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
 import {AuthGuard} from "./guards/auth.guard";
+import {ManageAccountComponent} from "./manage-account/manage-account.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 
 const routes: Routes = [
@@ -30,16 +32,15 @@ const routes: Routes = [
 
   {path: 'profile', component: ProfilePageComponent},
   {path: 'book', component: BookPageComponent},
-  
+
   {path: 'profile/:id', component: ProfilePageComponent,canActivate: [AuthGuard],},
   {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
   {path: 'book/:id', component: BookPageComponent,canActivate: [AuthGuard],},
   {path: 'catalogs', component: CatalogListComponent,canActivate: [AuthGuard],},
   {path: 'catalogs/:string', component: CatalogBooksComponent,canActivate: [AuthGuard],},
-  
-  
-
-  {path: '', redirectTo: 'about', pathMatch: 'full'}
+  {path: 'manage-account', component: ManageAccountComponent,canActivate: [AuthGuard],},
+  { path: '**', component: PageNotFoundComponent },
+  {path: '', redirectTo: 'about', pathMatch: 'full'},
 ];
 
 @NgModule({

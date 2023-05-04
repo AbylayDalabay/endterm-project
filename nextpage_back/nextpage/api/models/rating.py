@@ -1,4 +1,5 @@
 from django.db import models
+# noinspection PyUnresolvedReferences
 from api.models.book import Book
 
 class Rating(models.Model) :
