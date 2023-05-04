@@ -4,6 +4,8 @@ import { reviews } from '../models/review';
 import { Book } from '../models/book';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
+import { ReviewService } from '../services/review.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-book-page',
@@ -22,7 +24,8 @@ export class BookPageComponent implements OnInit{
     id: number = 2;
     books : Book[] = []
     book : Book
-    constructor(private route: ActivatedRoute, private bookService: BookService){
+    userId : number = 0
+    constructor(private route: ActivatedRoute, private bookService: BookService, private reviewService: ReviewService){
       //   this.myButton = document.getElementById('show')!;
       //   this.myButton.onclick = this.handleClick.bind(this);
       this.book = {} as Book
@@ -64,14 +67,15 @@ export class BookPageComponent implements OnInit{
     }
 
     onSubmit() {
-      reviews.push(
-        {id:this.id,
-         username:this.name!,
-         rating: this.rate,
-         review: this.review!,
-         bookId: this.bookId}
-        );
-      console.log(reviews)
+      this.reviewService.postReview(this.review!,this.bookId,1)
+      // reviews.push(
+      //   {id:this.id,
+      //    username:this.name!,
+      //    rating: this.rate,
+      //    review: this.review!,
+      //    book: this.bookId}
+      //   );
+      // console.log(reviews)
       // console.log('Name:', this.name);
       // console.log('Rating:', this.rate);
       // console.log('Review:', this.review);
