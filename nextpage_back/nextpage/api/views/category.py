@@ -15,6 +15,11 @@ class CategoryListAPIView(APIView):
         categories = Category.objects.all()
         serializer = CategorySerializer2(categories, many=True)
         return Response(serializer.data)
+    # def delete(self, request):
+    #     book_categories = Book.objects.values_list('category__id', flat=True).distinct()
+    #     empty_categories = Category.objects.exclude(id__in=book_categories)
+    #     empty_categories.delete()
+    #     return Response({'deleted': True})
 
 class CategoryDetailAPIView(APIView):
     def get_object(self, category):
