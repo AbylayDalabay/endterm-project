@@ -1,4 +1,5 @@
 from django.db import models
+# noinspection PyUnresolvedReferences
 from api.models.category import Category
 
 class Book(models.Model):

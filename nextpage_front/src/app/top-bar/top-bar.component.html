@@ -39,10 +39,10 @@
 
       <div *ngIf="check==true" class="loginProfile">
         <button routerLink="/profile/1" class="loginProfile1">Profile</button>
-        <button class="loginProfile2">Manage account</button>
+        <button routerLink="/manage-account" class="loginProfile2">Manage account</button>
         <button class="loginProfile3" *ngIf="logged" (click)="logOut()">Sign out</button>
 
-<!--<div class="topbar"> 
+<!--<div class="topbar">
 
                конфликт
     <a href=""><img src="assets/images/logo_web-removebg-preview1.png" id="image"></a>

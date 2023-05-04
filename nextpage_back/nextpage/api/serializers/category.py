@@ -1,3 +1,4 @@
+# noinspection PyUnresolvedReferences
 from api.models.category import Category
 from rest_framework import serializers
 

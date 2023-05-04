@@ -1,7 +1,7 @@
-import json
 from api.models.book import Book
+import json
 from api.models.category import Category
-from django.http.response import HttpResponse, JsonResponse 
+from django.http.response import HttpResponse, JsonResponse
 from api.serializers.book import BookSerializer2
 def books(request):
     if request.method == 'GET':
