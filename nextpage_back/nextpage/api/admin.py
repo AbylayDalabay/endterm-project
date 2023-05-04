@@ -3,9 +3,12 @@ from .models.category import Category
 from .models.book import Book
 from .models.review import Review
 from .models.rating import Rating
+from .models.userlist import UserList
 from django.contrib.admin import SimpleListFilter
 # admin.site.register(Category)
-# admin.site.register(Book)
+
+
+
 # Register your models here.
 class ABCFilter(SimpleListFilter):
     title = 'alphabetically filter'
@@ -69,3 +72,7 @@ class RatingAdmin(admin.ModelAdmin):
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('id','review')
+
+@admin.register(UserList)
+class UserListAdmin(admin.ModelAdmin):
+    list_display = ('id','name', 'user')

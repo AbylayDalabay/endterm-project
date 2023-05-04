@@ -10,43 +10,46 @@ import { BookService } from '../services/book.service';
 export class InfoBookComponent {
     check = false;
     id : number | undefined;
-    listbook = books;
-    book : Book | undefined;
-    fullDes: string | undefined;
-    books : Book[] = []
-    // myButton: HTMLElement;
+    fullDes: string = ''
+    book : Book;
     constructor(private route: ActivatedRoute, private bookService: BookService){
-    //   this.myButton = document.getElementById('show')!;
-    //   this.myButton.onclick = this.handleClick.bind(this);
+       this.book = {} as Book
     }
-    // private handleClick() {
-    //   console.log('Button clicked!');
-    //   // здесь можно добавить ваш код обработки события
-    // }
 
     ngOnInit(): void{
-      this.id = Number(this.route.snapshot.paramMap.get('id'));
-      alert(this.id)
-      this.bookService.getBookById(this.id).subscribe((book) => this.book = book);
-      this.bookService.getBooks().subscribe((books) => this.books = books);
-      alert(this.books[0].author)
-      this.fullDes = this.book!.description;
-      if (this.book!.description.length >= 328){
+      this.route.paramMap.subscribe((params) => {
+        const id = Number(params.get('id'));
+        if (id != undefined){
+          this.getBook(id);
+        }
+        else{
+
+        }
+      })
+    }
+    getBook(id:number){
+      this.bookService.getBookById(id).subscribe((book) => {this.book = book;
+      this.getInfo(this.book.description);});
+    }
+    getHome(){
+      
+    }
+    getInfo(description:string): void{
+      this.fullDes = description;
+      if (description.length >= 328){
         this.changeDes();
-          // alert(this.listbook[0].description.length);
         this.check = true;
       }
-      // this.vacancyService.getVacanciesCompanies(this.id).subscribe((vacancies) => this.vacancies = vacancies);
     }
     changeDes(){
       if (this.check == true){
-        this.book!.description = this.fullDes!
+        this.book.description = this.fullDes
       }
       else{
-        this.book!.description = this.book!.description.substring(0,328)
-        let words = this.book!.description.split(' ');
+        this.book.description = this.fullDes.substring(0,328)
+        let words = this.book.description.split(' ');
         words.pop()
-        this.book!.description = words.join(" ");
+        this.book.description = words.join(" ");
       }
       this.check = !this.check
     }

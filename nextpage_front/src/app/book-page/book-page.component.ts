@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { reviews } from '../models/review';
+import { Book } from '../models/book';
+import { ActivatedRoute } from '@angular/router';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
   styleUrls: ['./book-page.component.css']
 })
-export class BookPageComponent {
+export class BookPageComponent implements OnInit{
 
     rate : number = 0;
     rating: number = 70;
@@ -17,20 +20,33 @@ export class BookPageComponent {
     review: string | undefined;
     bookId : number = 1;
     id: number = 2;
-
+    books : Book[] = []
+    book : Book
+    constructor(private route: ActivatedRoute, private bookService: BookService){
+      //   this.myButton = document.getElementById('show')!;
+      //   this.myButton.onclick = this.handleClick.bind(this);
+      this.book = {} as Book
+    }
     ngOnInit(): void{
       const ratingItemsList = document.querySelectorAll('.rating_item');
       const ratingItemsArray = Array.prototype.slice.call(ratingItemsList);
       ratingItemsArray.forEach(item => item.parentNode.dataset.totalValue = this.rate)
+      this.route.paramMap.subscribe((params) => {
+        const id = Number(params.get('id'));
+      })
+      this.Star();
+    }
+    getBook(id:number){
+      this.bookService.getBookById(id).subscribe((book) => {this.book = book;
+      console.log(this.book.title)});
+      // console.log(this.book.id)
 
+    }
+    Star(){
       const myStar = document.getElementById('rating_item_part');
       myStar!.style.background = `linear-gradient(to right,yellow ${this.rating}%, transparent 10%)`;
       myStar!.style.webkitBackgroundClip = 'text';
       myStar!.style.webkitTextFillColor = 'transparent';
-
-      // alert(this.selectedOption)
-      // const selectElement = document.getElementById('select') as HTMLSelectElement;
-      // this.selectedOption = selectElement.value;
     }
     changeRate(rate:number){
         this.rate = rate;
