@@ -1,6 +1,9 @@
+# noinspection PyUnresolvedReferences
 from api.models.book import Book
+# noinspection PyUnresolvedReferences
 from api.models.category import Category
-from django.http.response import HttpResponse, JsonResponse 
+from django.http.response import HttpResponse, JsonResponse
+# noinspection PyUnresolvedReferences
 from api.serializers.book import BookSerializer2
 def books(request):
     if request.method == 'GET':

@@ -4,6 +4,7 @@ from api import views
 from rest_framework_jwt.views import obtain_jwt_token
 # noinspection PyUnresolvedReferences
 from api.views.signup import RegistrationAPIView
+# noinspection PyUnresolvedReferences
 from api.views.books import books, book_by_id
 urlpatterns = [
     # path('hell/', views.postb),
