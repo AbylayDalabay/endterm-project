@@ -29,7 +29,7 @@ export class CatalogBooksComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const category_id = Number(params.get('category_id'));
+      const category_id = Number(params.get('id'));
       this.loaded = false;
       this.getCategory(category_id);
       this.getBooksByCategory(category_id);
