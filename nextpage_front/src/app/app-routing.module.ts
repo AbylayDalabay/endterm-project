@@ -32,7 +32,6 @@ const routes: Routes = [
 
   {path: 'profile', component: ProfilePageComponent},
   {path: 'book', component: BookPageComponent},
-
   {path: 'profile/:id', component: ProfilePageComponent,canActivate: [AuthGuard],},
   {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
   {path: 'book/:id', component: BookPageComponent,canActivate: [AuthGuard],},

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { books } from '../models/book';
+import { Book, books } from '../models/book';
 import { ActivatedRoute } from '@angular/router';
+import { BookService } from '../services/book.service';
 @Component({
   selector: 'app-info-book',
   templateUrl: './info-book.component.html',
@@ -10,10 +11,11 @@ export class InfoBookComponent {
     check = false;
     id : number | undefined;
     listbook = books;
-    fullDes = this.listbook[0].description;
-
+    book : Book | undefined;
+    fullDes: string | undefined;
+    books : Book[] = []
     // myButton: HTMLElement;
-    constructor(private route: ActivatedRoute){
+    constructor(private route: ActivatedRoute, private bookService: BookService){
     //   this.myButton = document.getElementById('show')!;
     //   this.myButton.onclick = this.handleClick.bind(this);
     }
@@ -24,7 +26,12 @@ export class InfoBookComponent {
 
     ngOnInit(): void{
       this.id = Number(this.route.snapshot.paramMap.get('id'));
-      if (this.listbook[0].description.length >= 328){
+      alert(this.id)
+      this.bookService.getBookById(this.id).subscribe((book) => this.book = book);
+      this.bookService.getBooks().subscribe((books) => this.books = books);
+      alert(this.books[0].author)
+      this.fullDes = this.book!.description;
+      if (this.book!.description.length >= 328){
         this.changeDes();
           // alert(this.listbook[0].description.length);
         this.check = true;
@@ -33,14 +40,13 @@ export class InfoBookComponent {
     }
     changeDes(){
       if (this.check == true){
-        this.listbook[0].description = this.fullDes
-        
+        this.book!.description = this.fullDes!
       }
       else{
-        this.listbook[0].description = this.listbook[0].description.substring(0,328)
-        let words = this.listbook[0].description.split(' ');
+        this.book!.description = this.book!.description.substring(0,328)
+        let words = this.book!.description.split(' ');
         words.pop()
-        this.listbook[0].description = words.join(" ");
+        this.book!.description = words.join(" ");
       }
       this.check = !this.check
     }
