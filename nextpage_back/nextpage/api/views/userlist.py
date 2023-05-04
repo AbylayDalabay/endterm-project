@@ -52,9 +52,10 @@ class BookOneUserListAPI(APIView):
         if (books.count()==0):
             return JsonResponse({"not":"found"})
         else:
-                serializer = BookSerializer2(books)
-                # serializer = ListSerializer2(userlist)
-                return Response(serializer.data)
+            
+            serializer = BookSerializer2(books, many=True)
+        #     serializer = ListSerializer2(userlist)
+            return Response(serializer.data)
     def post(self, request, list_name):
         data = json.loads(request.body)
 
@@ -66,7 +67,7 @@ class BookOneUserListAPI(APIView):
         userlist.save()
         serializer = ListSerializer2(userlist)
         return Response(serializer.data)
-        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     def delete(self, request, list_name) :
         data = json.loads(request.body)
         book_id = data.get('book','')
