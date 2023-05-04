@@ -6,6 +6,7 @@ from api.views.signup import RegistrationAPIView
 # noinspection PyUnresolvedReferences
 from api.views.books import books, book_by_id
 from api.views import category
+from api.views.userlist import UserListAPI
 urlpatterns = [
     path('login/', obtain_jwt_token), # post (token)
     path('register/', RegistrationAPIView.as_view()), # post (token)
@@ -15,6 +16,7 @@ urlpatterns = [
     path('categories/', category.CategoryListAPIView.as_view()),
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
     path("categories/<int:category_id>/books/", category.BooksByCategoryAPIView.as_view()),
-    
+    path('ist/<int:user_id>/<int:list_id>/books/', UserListAPI.as_view()),
+    # path('test/', userlist.create_user_wishlists)
 
 ]

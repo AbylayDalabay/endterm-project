@@ -17,7 +17,7 @@ export class BookService {
   }
 
   getBooksByCategory(category_id: Number): Observable<Book[]>{
-    return this.client.get<Book[]>(`${this.BASE_URL}/${category_id}/books`)
+    return this.client.get<Book[]>(`${this.BASE_URL}/categories/${category_id}/books`)
   }
 
 }
