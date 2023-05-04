@@ -19,28 +19,20 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 const routes: Routes = [
 
   {path: 'home', component: HomePageComponent, canActivate: [AuthGuard],},
-  {
-    path: 'about',
-    component: AboutPageComponent,
-  },
-  {path: 'signin',
-    component: SignInPageComponent,
-
-  },
+  {path: 'about',component: AboutPageComponent},
+  {path: 'signin',component: SignInPageComponent},
   {path: 'signup', component: SignUpPageComponent},
-
-
   {path: 'profile', component: ProfilePageComponent},
   {path: 'book', component: BookPageComponent},
-
   {path: 'profile/:id', component: ProfilePageComponent,canActivate: [AuthGuard],},
   {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
   {path: 'book/:id', component: BookPageComponent,canActivate: [AuthGuard],},
   {path: 'catalogs', component: CatalogListComponent,canActivate: [AuthGuard],},
-  {path: 'catalogs/:string', component: CatalogBooksComponent,canActivate: [AuthGuard],},
+  {path: 'catalogs/:id', component: CatalogBooksComponent,canActivate: [AuthGuard],},
   {path: 'manage-account', component: ManageAccountComponent,canActivate: [AuthGuard],},
-  { path: '**', component: PageNotFoundComponent },
   {path: '', redirectTo: 'about', pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent },
+  
 ];
 
 @NgModule({

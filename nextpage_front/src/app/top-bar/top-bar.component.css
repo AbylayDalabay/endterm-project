@@ -93,6 +93,7 @@ div#log{
   position: absolute;
 }
 .loginProfile1,.loginProfile2,.loginProfile3{
+  z-index: 2;
   position: fixed;
   margin-left: -2.2cm;
   background-color: rgb(249, 249, 249);
