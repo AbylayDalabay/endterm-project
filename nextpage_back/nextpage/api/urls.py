@@ -33,8 +33,10 @@ urlpatterns = [
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
     path("categories/<int:category_id>/books/", category.BooksByCategoryAPIView.as_view()),
     path('ist/<int:user_id>/<int:list_id>/books/', UserListAPI.as_view()),
-    path('list/<int:list_id>/books/', userlist.UserListDetailAPI.as_view()),
+    path('list/<int:list_id>/books/', userlist.UserListDetailAPI.as_view()),\
+    
     path('list/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
+
     path('list/', userlist.GetUsersListsAPI.as_view()),
     path('profile/', ProfileDetailAPIView.as_view()),
     # path('list/<int:id>/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),

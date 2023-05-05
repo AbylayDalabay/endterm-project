@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import { UserList } from '../models/userlist';
-import { Book } from '../models/book';
+import { Book, Book2 } from '../models/book';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +20,17 @@ export class UserlistService {
     return this.client.get<Book[]>(`${this.BASE_URL}/list/${name}/books`)
   }
 
+ 
+  postBookToList(listName:string, book: Book2): Observable<UserList>{
+    return this.client.post<UserList>(`${this.BASE_URL}/list/${listName}/books/`, book)
+  }
+ 
+  deletetBookFromList(listName: string, book: Book2): Observable<UserList> {
+    return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/books/`, { body: book, responseType: 'json' });
+  }
+
+  
+  
 
   
 }
