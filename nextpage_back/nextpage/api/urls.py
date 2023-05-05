@@ -7,7 +7,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 from api.views.signup import RegistrationAPIView
 from api.views.user import user_info
 # noinspection PyUnresolvedReferences
-from api.views.books import books, book_by_id
+from api.views.books import books, book_by_id, get_random_books
 # noinspection PyUnresolvedReferences
 from api.views import category
 # noinspection PyUnresolvedReferences
@@ -46,6 +46,7 @@ urlpatterns = [
     path('books/<int:id>/rating', rating),
     path('search/<str:term>/', search_books, name='search_books'),
     path('users/search/<str:term>/', search_users, name='search_users'),
+    path('books/popular', get_random_books)
 ]
 
 

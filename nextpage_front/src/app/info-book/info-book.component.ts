@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book, books } from '../models/book';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
+import { UserlistService } from '../services/userlist.service';
 @Component({
   selector: 'app-info-book',
   templateUrl: './info-book.component.html',
@@ -14,7 +15,7 @@ export class InfoBookComponent {
     book : Book;
     home = false;
     appear = false;
-    constructor(private route: ActivatedRoute, private bookService: BookService){
+    constructor(private route: ActivatedRoute, private bookService: BookService, private userList: UserlistService){
        this.book = {} as Book
     }
 
@@ -25,7 +26,12 @@ export class InfoBookComponent {
           this.getBook(id);
         }
         if (id == 0){
-          this.home = true;
+          // this.home = true;
+          this.userList.getBooksOfList('Reading').subscribe((books) => {
+            if(books != undefined && books.length != 0){
+                this.book = books[0];
+            }
+          })
         }
         console.log(id);
       })

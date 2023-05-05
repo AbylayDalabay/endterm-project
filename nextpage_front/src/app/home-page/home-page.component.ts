@@ -16,14 +16,31 @@ export class HomePageComponent {
     id: number | undefined;
     list : Book[] = [];
     user : User | undefined;
+    popular: Book[] = [];
+    recommendations: Book[] = [];
     constructor(private route: ActivatedRoute, private bookService: BookService, private userList: UserlistService, private userService: UsersService){
         
     }
     ngOnInit(): void{
       this.id = Number(this.route.snapshot.paramMap.get('id'));
+      this.getPopular();
+      this.getReco();
       this.userService.logged().subscribe((user) => 
           this.userList.getBooksOfList('Read').subscribe((list) => 
             {this.list = list;this.getBook()}));
+    }
+    getCur(){
+      this.userList.getBooksOfList('Reading').subscribe((books) => {
+        if(books != undefined && books.length != 0){
+            this.book = books[0];
+        }
+      })
+    }
+    getPopular(){
+      this.bookService.getRandomBooks().subscribe((pop) => this.popular = pop);
+    }
+    getReco(){
+      this.bookService.getRandomBooks().subscribe((pop) => this.recommendations = pop);
     }
     getBook(){
       if(this.list.length > 0){
