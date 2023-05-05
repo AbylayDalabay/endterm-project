@@ -84,23 +84,4 @@ class BookOneUserListAPI(APIView):
         serializer = ListSerializer2(userlist)
         return Response(serializer.data)
 
-        
-
-
-    
-
-        
-
-
-
-# def create_user_wishlists(request):
-#         for i in User.objects.all():
-
-#                 UserList.objects.create(user=i, name=f'Reading')
-#                 UserList.objects.create(user=i, name=f'Read')
-#                 UserList.objects.create(user=i, name=f'Favorites')
-#                 UserList.objects.create(user=i, name=f'Planned')
-#                 UserList.objects.create(user=i, name=f'Abandoned')
-#         return JsonResponse({"all":"done"})
-
 

@@ -4,7 +4,10 @@ body {
   background-attachment: fixed;
   font-family: 'Prompt';
 }
-
+#no{
+  font-size: 25px;
+  font-family: 'Prompt';
+}
 .review-block {
 
   margin-bottom: 18px;
