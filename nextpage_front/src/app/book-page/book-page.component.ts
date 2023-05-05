@@ -43,8 +43,10 @@ export class BookPageComponent implements OnInit{
         this.id = Number(params.get('id'));
         this.getCurrentRating();
         this.getReviews(this.id);
+        this.b.book = this.id;
       })
       this.getUsersLists();
+      
     }
     getUsersLists() {
       this.userListService.getUsersLists().subscribe((userList) =>{
@@ -86,7 +88,11 @@ export class BookPageComponent implements OnInit{
     saveOption(){
       const selectElement = document.getElementById('select') as HTMLSelectElement;
       this.selectedOption = selectElement.value;
-
+      // for( let i = 0; i<5; i++) {
+      //   if (i != this.book.id)
+      //     this.userListService.deletetBookFromList(this.lists[i].name, this.b).subscribe((userlist) => this.lists[i] = userlist);
+      // }
+      // alert(this.selectedOption)
       // this.userListService.deletetBookFromList(this.lists[0].name, this.b).subscribe((userlist) => this.lists[0] = userlist);
       // this.userListService.deletetBookFromList(this.lists[1].name, this.b).subscribe((userlist) => this.lists[1] = userlist);
       // this.userListService.deletetBookFromList(this.lists[2].name, this.b).subscribe((userlist) => this.lists[2] = userlist);
@@ -94,8 +100,13 @@ export class BookPageComponent implements OnInit{
       // this.userListService.deletetBookFromList(this.lists[4].name, this.b).subscribe((userlist) => this.lists[4] = userlist);
 
       if (this.selectedOption != "AddBook"){
-        this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => this.userlist = userlist);
+        this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {this.userlist = userlist});
       }
+      // this.albumsService.addAlbum(this.newAlbum).subscribe((album) => {
+      //   this.albums.push(album);
+      //   this.loaded = true;
+      //   this.newAlbum = {} as Album;
+      // });
     }
 
     onSubmit() {

@@ -22,11 +22,11 @@ export class UserlistService {
 
  
   postBookToList(listName:string, book: Book2): Observable<UserList>{
-    return this.client.post<UserList>(`${this.BASE_URL}/list/${listName}/books`, book)
+    return this.client.post<UserList>(`${this.BASE_URL}/list/${listName}/books/`, book)
   }
  
   deletetBookFromList(listName: string, book: Book2): Observable<UserList> {
-    return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/books`, { body: book, responseType: 'json' });
+    return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/books/`, { body: book, responseType: 'json' });
   }
 
   

@@ -84,8 +84,10 @@
 #sh{
     font-family: 'Khula';
     font-size: 25px;
-    margin-left: 82px;
-    margin-top: -50px;
+    margin-left: 5px;
+    margin-top: -5px;
+    text-decoration: none;
+    position: absolute;
 }
 #stat{
     font-family: 'Khula';
@@ -127,4 +129,21 @@
     margin-top: -54px;
     width: 244px;
     height: 26px;
+}
+#inBlock{
+    overflow-y: scroll;
+    margin-left: 3cm;
+    height: 100px;
+    width: 220px;
+    margin-top: -10px;
+    border: #000000;
+    border-radius: 12px;
+    z-index: 2;
+    background-color: rgb(232, 232, 232);
+    list-style-type:none;
+    position: absolute;
+}
+#finding{
+    text-decoration: none;
+    /* text-align: left; */
 }
