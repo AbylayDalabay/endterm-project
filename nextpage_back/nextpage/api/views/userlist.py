@@ -1,33 +1,30 @@
 import json
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import Http404
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
+
+# noinspection PyUnresolvedReferences
+from api.models.book import Book
+# noinspection PyUnresolvedReferences
+from api.models.book import Book
+# noinspection PyUnresolvedReferences
+from api.models.category import Category
+# noinspection PyUnresolvedReferences
+from api.models.category import Category
+# noinspection PyUnresolvedReferences
+from api.models.userlist import UserList
+# noinspection PyUnresolvedReferences
+from api.models.userlist import UserList
+# noinspection PyUnresolvedReferences
+from api.serializers.book import BookSerializer2
+# noinspection PyUnresolvedReferences
+from api.serializers.book import BookSerializer2
 # noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
 # noinspection PyUnresolvedReferences
-from api.serializers.book import BookSerializer2
-# noinspection PyUnresolvedReferences
-from api.models.category import Category
-# noinspection PyUnresolvedReferences
-from api.models.book import Book
-# noinspection PyUnresolvedReferences
-from api.models.userlist import UserList
-from django.contrib.auth.models import User
-# noinspection PyUnresolvedReferences
-from api.serializers.book import BookSerializer2
-# noinspection PyUnresolvedReferences
-from api.models.category import Category
-# noinspection PyUnresolvedReferences
-from api.models.book import Book
-# noinspection PyUnresolvedReferences
-from api.models.userlist import UserList
-from django.contrib.auth.models import User
-# noinspection PyUnresolvedReferences
 from api.serializers.userlist import ListSerializer2
-
-
+from django.contrib.auth.models import User
+from django.http import HttpResponse, JsonResponse
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 class UserListAPI(APIView):
