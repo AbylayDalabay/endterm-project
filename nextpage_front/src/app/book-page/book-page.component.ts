@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserlistService } from '../services/userlist.service';
 import { Review, reviews } from '../models/review';
-import { Book } from '../models/book';
+import { Book, Book2 } from '../models/book';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
 import { ReviewService } from '../services/review.service';
 import { AuthService } from '../services/auth.service';
 import { UsersService } from '../services/users.service';
 import { ReviewComponent } from '../review/review.component';
+import { UserList } from '../models/userlist';
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
   styleUrls: ['./book-page.component.css']
 })
-export class BookPageComponent implements OnInit{
 
+export class BookPageComponent implements OnInit{
+    b: Book2 ={} as Book2;
+    lists: UserList[] = [];
+    userlist: UserList = {} as UserList;
     rate : number = 0;
     rating: number = 0;
     selectedOption: string | undefined;
@@ -26,10 +30,10 @@ export class BookPageComponent implements OnInit{
     book : Book
     userId : number = 0
     reviews: Review[] = []
-    constructor(private route: ActivatedRoute, private bookService: BookService, private reviewService: ReviewService,private userService: UsersService){
+    constructor(private route: ActivatedRoute, private bookService: BookService, private reviewService: ReviewService,private userService: UsersService, private userListService: UserlistService){
       //   this.myButton = document.getElementById('show')!;
       //   this.myButton.onclick = this.handleClick.bind(this);
-      this.book = {} as Book
+      this.book = {} as Book;
     }
     ngOnInit(): void{
       const ratingItemsList = document.querySelectorAll('.rating_item');
@@ -39,6 +43,14 @@ export class BookPageComponent implements OnInit{
         this.id = Number(params.get('id'));
         this.getCurrentRating();
         this.getReviews(this.id);
+        this.b.book = this.id;
+      })
+      this.getUsersLists();
+      
+    }
+    getUsersLists() {
+      this.userListService.getUsersLists().subscribe((userList) =>{
+        this.lists = userList;
       })
     }
     getReviews(id: number){
@@ -58,7 +70,7 @@ export class BookPageComponent implements OnInit{
     getBook(id:number){
       this.bookService.getBookById(id).subscribe((book) => {this.book = book;
       console.log(this.book.title)});
-      // console.log(this.book.id)
+   
 
     }
     Star(rating: number){
@@ -76,6 +88,25 @@ export class BookPageComponent implements OnInit{
     saveOption(){
       const selectElement = document.getElementById('select') as HTMLSelectElement;
       this.selectedOption = selectElement.value;
+      // for( let i = 0; i<5; i++) {
+      //   if (i != this.book.id)
+      //     this.userListService.deletetBookFromList(this.lists[i].name, this.b).subscribe((userlist) => this.lists[i] = userlist);
+      // }
+      // alert(this.selectedOption)
+      // this.userListService.deletetBookFromList(this.lists[0].name, this.b).subscribe((userlist) => this.lists[0] = userlist);
+      // this.userListService.deletetBookFromList(this.lists[1].name, this.b).subscribe((userlist) => this.lists[1] = userlist);
+      // this.userListService.deletetBookFromList(this.lists[2].name, this.b).subscribe((userlist) => this.lists[2] = userlist);
+      // this.userListService.deletetBookFromList(this.lists[3].name, this.b).subscribe((userlist) => this.lists[3] = userlist);
+      // this.userListService.deletetBookFromList(this.lists[4].name, this.b).subscribe((userlist) => this.lists[4] = userlist);
+
+      if (this.selectedOption != "AddBook"){
+        this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {this.userlist = userlist});
+      }
+      // this.albumsService.addAlbum(this.newAlbum).subscribe((album) => {
+      //   this.albums.push(album);
+      //   this.loaded = true;
+      //   this.newAlbum = {} as Album;
+      // });
     }
 
     onSubmit() {

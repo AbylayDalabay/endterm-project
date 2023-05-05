@@ -13,6 +13,10 @@ export interface Book {
 }
 
 
+export interface Book2{
+        book: number;
+}
+
 export const books = [
         {
                 id: 0,
