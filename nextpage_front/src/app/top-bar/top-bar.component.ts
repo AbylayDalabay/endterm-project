@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { Book } from '../models/book';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,6 +10,7 @@ import {Router} from '@angular/router';
 export class TopBarComponent {
     check = false;
     findBook : string = '';
+    books : Book[] = []
     // constructor(private bookService: bookService){
 
     // }

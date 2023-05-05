@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
 import {AuthToken} from "../models/authtoken";
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class UsersService {
 
   constructor(private http: HttpClient) {
   }
-
+  logged(): Observable<User>{
+    return this.http.get<User>(`${this.BASE_URL}/logged/`)
+  }
   login(username: string, password: string): Observable<AuthToken> {
     return this.http.post<AuthToken>(`${this.BASE_URL}/login/`, {
       username,
