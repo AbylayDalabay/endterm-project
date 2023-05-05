@@ -13,14 +13,20 @@ declare var $: any;
 })
 export class ProfilePageComponent implements OnInit{
   findUser : string = '';
+  cur = 0;
+  alr = 0;
+  wil = 0;
   users : User[] = []
       constructor(private usersService: UsersService, private logService: LogService, private route: Router) {
     // @ts-ignore
     this.user = this.user;
     }
-
+    
     ngOnInit(): void {
       this.getUser();
+      this.getRead()
+      this.getAlr();
+      this.getWill();
       $('#search').autocomplete({
         source: (request: { term: string; }, response: (arg0: User[]) => void) => {
           this.usersService.getFindUsers(request.term).subscribe(data => {
@@ -38,7 +44,24 @@ export class ProfilePageComponent implements OnInit{
   getLetter(): string {
     return this.user?.username.charAt(0).toUpperCase() || '☠';
   }
-
+  getRead(){
+    this.usersService.getUserListBooks('Reading').subscribe((read) => {
+      if(read.length != undefined){
+        this.cur = read.length
+      }});
+  }
+  getAlr(){
+    this.usersService.getUserListBooks('Read').subscribe((read) => {
+      if(read.length != undefined){
+        this.alr = read.length
+      }});
+  }
+  getWill(){
+    this.usersService.getUserListBooks('Planned').subscribe((read) => {
+      if(read.length != undefined){
+        this.wil = read.length
+      }});
+  }
   getUser(): void {
     this.usersService.getProfile().subscribe(user => {
       this.user = user;

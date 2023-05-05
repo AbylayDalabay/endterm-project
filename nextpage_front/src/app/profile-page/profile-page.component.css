@@ -84,8 +84,10 @@
 #sh{
     font-family: 'Khula';
     font-size: 25px;
-    margin-left: 82px;
-    margin-top: -50px;
+    margin-left: 5px;
+    margin-top: -5px;
+    text-decoration: none;
+    position: absolute;
 }
 #stat{
     font-family: 'Khula';
