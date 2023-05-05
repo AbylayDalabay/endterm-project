@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
 import {AuthToken} from "../models/authtoken";
 import {User} from "../models/user";
+import { Book } from '../models/book';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +25,9 @@ export class UsersService {
       username,
       password,
     });
+  }
+  getUserListBooks(query: string): Observable<Book[]>{
+    return this.http.get<Book[]>(`${this.BASE_URL}/list/${query}/books/`);
   }
   getFindUsers(query: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.BASE_URL}/users/search/${query}/`);
