@@ -1,22 +1,6 @@
 import { Title } from "@angular/platform-browser";
-import { Category } from "./category";
-import { categories } from "./category";
+import { Category, categories } from "./category";
 
-// export class Book {
-//         title: string;
-//         authors : string[];
-//         categories: Category[];
-//         img: string;
-//         description: string;
-
-//         constructor(title: string, authors: string[], categories: Category[], img: string, description: string) {
-//                 this.title = title;
-//                 this.authors = authors;
-//                 this.categories = categories;
-//                 this.img = img;
-//                 this.description = description;
-//         }
-// }
 
 export interface Book {
         id: number;

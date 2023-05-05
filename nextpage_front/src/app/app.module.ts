@@ -17,7 +17,7 @@ import { ManageAccountComponent } from './manage-account/manage-account.componen
 import { AboutPageComponent } from './about-page/about-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { CatalogComponent } from './catalog/catalog.component';
+// import { CatalogComponent } from './catalog/catalog.component';
 
 import { InfoBookComponent } from './info-book/info-book.component';
 
@@ -29,6 +29,7 @@ import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 
@@ -46,7 +47,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FooterComponent,
     ProfilePageComponent,
 
-    CatalogComponent,
+    // CatalogComponent,
     InfoBookComponent,
     ReviewPageComponent,
     ManageAccountComponent,
@@ -55,6 +56,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CatalogBooksComponent,
     BookPageComponent,
     PageNotFoundComponent,
+    UserListComponent,
 
 
 
