@@ -6,6 +6,8 @@ from rest_framework_jwt.views import obtain_jwt_token
 # noinspection PyUnresolvedReferences
 from api.views.signup import RegistrationAPIView
 # noinspection PyUnresolvedReferences
+from api.views.user import user_info
+# noinspection PyUnresolvedReferences
 from api.views.books import books, book_by_id
 # noinspection PyUnresolvedReferences
 from api.views import category
@@ -17,13 +19,14 @@ from api.views import category
 from api.views import userlist
 # noinspection PyUnresolvedReferences
 from api.views.profile import ProfileDetailAPIView
-
+# noinspection PyUnresolvedReferences
+from api.views.reviews import reviews,rating
 urlpatterns = [
     path('login/', obtain_jwt_token), # post (token)
     path('register/', RegistrationAPIView.as_view()), # post (token)
     path('books/', books),
     path('books/<int:id>/', book_by_id),
-
+    path('logged/', user_info),
 
     path('categories/', category.CategoryListAPIView.as_view()),
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
@@ -34,7 +37,11 @@ urlpatterns = [
     path('list/', userlist.GetUsersListsAPI.as_view()),
     path('profile/', ProfileDetailAPIView.as_view()),
     # path('list/<int:id>/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
+    path('books/<int:id>/reviews', reviews),
+    # path('current_user/', current_user, name='current_user'),
     # path('test/', userlist.create_user_wishlists)
+    path('books/<int:id>/rating', rating)
+
 
 ]
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { books } from '../models/book';
+import { Book, books } from '../models/book';
 import { ActivatedRoute } from '@angular/router';
+import { BookService } from '../services/book.service';
 @Component({
   selector: 'app-info-book',
   templateUrl: './info-book.component.html',
@@ -9,38 +10,57 @@ import { ActivatedRoute } from '@angular/router';
 export class InfoBookComponent {
     check = false;
     id : number | undefined;
-    listbook = books;
-    fullDes = this.listbook[0].description;
-
-    // myButton: HTMLElement;
-    constructor(private route: ActivatedRoute){
-    //   this.myButton = document.getElementById('show')!;
-    //   this.myButton.onclick = this.handleClick.bind(this);
+    fullDes: string = ''
+    book : Book;
+    home = false;
+    appear = false;
+    constructor(private route: ActivatedRoute, private bookService: BookService){
+       this.book = {} as Book
     }
-    // private handleClick() {
-    //   console.log('Button clicked!');
-    //   // здесь можно добавить ваш код обработки события
-    // }
 
     ngOnInit(): void{
-      this.id = Number(this.route.snapshot.paramMap.get('id'));
-      if (this.listbook[0].description.length >= 328){
+      this.route.paramMap.subscribe((params) => {
+        const id = Number(params.get('id'));
+        if (id != 0){
+          this.getBook(id);
+        }
+        if (id == 0){
+          this.home = true;
+        }
+        console.log(id);
+      })
+    }
+    getBook(id:number){
+      this.bookService.getBookById(id).subscribe((book) => {this.book = book;
+      this.getInfo(this.book.description);});
+    }
+    getHome(){
+      
+    }
+    getInfo(description:string): void{
+      this.fullDes = description;
+      if (description.length >= 328){
         this.changeDes();
-          // alert(this.listbook[0].description.length);
         this.check = true;
       }
-      // this.vacancyService.getVacanciesCompanies(this.id).subscribe((vacancies) => this.vacancies = vacancies);
+    }
+    checkSize(){
+        if (this.book.description.length < 328){
+            this.appear = false;
+        }
+        else{
+          this.appear = true;
+        }
     }
     changeDes(){
       if (this.check == true){
-        this.listbook[0].description = this.fullDes
-        
+        this.book.description = this.fullDes
       }
       else{
-        this.listbook[0].description = this.listbook[0].description.substring(0,328)
-        let words = this.listbook[0].description.split(' ');
+        this.book.description = this.fullDes.substring(0,328)
+        let words = this.book.description.split(' ');
         words.pop()
-        this.listbook[0].description = words.join(" ");
+        this.book.description = words.join(" ");
       }
       this.check = !this.check
     }
