@@ -4,16 +4,40 @@ from django.shortcuts import Http404
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+# noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
+# noinspection PyUnresolvedReferences
 from api.serializers.book import BookSerializer2
+# noinspection PyUnresolvedReferences
 from api.models.category import Category
+# noinspection PyUnresolvedReferences
 from api.models.book import Book
+# noinspection PyUnresolvedReferences
 from api.models.userlist import UserList
 from django.contrib.auth.models import User
+# noinspection PyUnresolvedReferences
+from api.serializers.book import BookSerializer2
+# noinspection PyUnresolvedReferences
+from api.models.category import Category
+# noinspection PyUnresolvedReferences
+from api.models.book import Book
+# noinspection PyUnresolvedReferences
+from api.models.userlist import UserList
+from django.contrib.auth.models import User
+# noinspection PyUnresolvedReferences
 from api.serializers.userlist import ListSerializer2
 
+
+
+
+class UserListAPI(APIView):
+    
+
+
+    def get(self, request, user_id, list_id):
+        userlist = UserList.objects.get(pk=list_id)
+        serializer = ListSerializer2(userlist)
+        return Response(serializer.data)
 
 
 class UserListDetailAPI(APIView):
@@ -83,5 +107,6 @@ class BookOneUserListAPI(APIView):
         userlist.books.remove(book)
         serializer = ListSerializer2(userlist)
         return Response(serializer.data)
+
 
 

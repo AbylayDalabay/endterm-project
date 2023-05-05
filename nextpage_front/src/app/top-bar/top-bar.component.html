@@ -58,7 +58,7 @@
       <input type="image" src="assets/images/login1.png" id="login" (click)="showBar()">
 
       <div *ngIf="check==true" class="loginProfile">
-        <button routerLink="/profile/1" class="loginProfile1">Profile</button>
+        <button routerLink="/profile" class="loginProfile1">Profile</button>
         <button routerLink="/manage-account" class="loginProfile2">Manage account</button>
         <button class="loginProfile3" *ngIf="logged" (click)="logOut()">Sign out</button>
       </div>
