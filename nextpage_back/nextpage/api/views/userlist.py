@@ -24,7 +24,19 @@ class UserListDetailAPI(APIView):
         serializer = ListSerializer2(userlist)
         return Response(serializer.data)
     
+class GetUsersListsAPI(APIView):
+    def getListObject(self, user):
+        try:
+            return UserList.objects.filter(user=user)
+        except UserList.DoesNotExist as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
+    def get(self, request):
+        user = request.user
+        userlists = self.getListObject(user)
+        serializer = ListSerializer2(userlists, many=True)
+        return Response(serializer.data)
+    
 
 class BookOneUserListAPI(APIView):
     def getListObject(self, list_name, user):
@@ -38,12 +50,6 @@ class BookOneUserListAPI(APIView):
             return Book.objects.get(pk=id)
         except Book.DoesNotExist as e:
             return HttpResponse(status=404)
-#     def getUser(self, user_id):
-#         try:
-#             return User.objects.get(pk=user_id)
-#         except User.DoesNotExist as e:
-#             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
-        
 
     def get(self, request, list_name):
         user = request.user

@@ -19,6 +19,7 @@ urlpatterns = [
     path("categories/<int:category_id>/books/", category.BooksByCategoryAPIView.as_view()),
     path('list/<int:list_id>/books/', userlist.UserListDetailAPI.as_view()),
     path('list/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
+    path('list/', userlist.GetUsersListsAPI.as_view()),
     # path('list/<int:id>/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
     # path('test/', userlist.create_user_wishlists)
 
