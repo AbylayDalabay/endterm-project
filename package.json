@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@types/jqueryui": "^1.12.16"
+  }
+}

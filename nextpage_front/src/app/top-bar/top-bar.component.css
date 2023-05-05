@@ -161,3 +161,6 @@ div#log{
   background-color: rgb(232, 232, 232);
   list-style-type:none;
 }
+#find{
+  text-decoration: none;
+}

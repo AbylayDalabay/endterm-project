@@ -1,30 +1,3 @@
-<!-- <div class="navbar">
-    <div class="frame-2">
-      <div class="component-1">
-        <p class="text-1">HOME</p>
-        <div class="line-1"></div>
-      </div>
-      <div class="component-3">
-        <p class="text-2">CATALOG</p>
-        <div class="line-1"></div>
-      </div>
-      <div class="component-2">
-        <p class="text-3">MY BOOKS</p>
-        <div class="line-1"></div>
-      </div>
-    </div>
-    <div class="logo">
-      <img src="" />
-    </div>
-    <div class="avatar">
-      <div class="group">
-        <img src="logo_web-removebg-preview.svg">
-      </div>
-    </divй>
-    <div class="rectangle-1"></div>
-    <p class="text-6">Search all books...</p>
-  </div> -->
-
 
 <div class="topbar"*ngIf="logged">
     <a routerLink="/home"><img src="assets/images/logo_web-removebg-preview1.png" id="image"></a>
@@ -32,25 +5,15 @@
       <a routerLink="/home" class="top">HOME</a> 
       <a routerLink="/catalogs" class="top">CATALOG</a> 
       <a routerLink="/mybooks" class="top">MY BOOKS</a> 
-      <!-- <input type="text" [(ngModel)]="findBook" placeholder="Search all books.." id="search"> -->
 
     </div>
     <div class="block">
-      <input type="text" [(ngModel)]="findBook" placeholder="Search all books.." id="search">
-      <div *ngIf="findBook!=''">
-        <ul id="inBlock">
-          <a href=""><li>hi</li></a>
-          <li>hi2</li>
-          <li>hi3</li>
-          <li>hi</li>
-          <li>hi2</li>
-          <li>hi3</li>
-          <li>hi</li>
-          <li>hi2</li>
-          <li>hi3</li>
-          <li>hi</li>
-          <li>hi2</li>
-          <li>hi3</li>
+      <input type="text" [(ngModel)]="findBook" placeholder="Search all books.." id="search" (input)="search()">
+      <div>
+        <ul id="inBlock" *ngIf="findBook!=''">
+          <li *ngFor="let book of books">
+            <a routerLink="book/{{book.id}}" id="find">{{book.title}}</a>
+          </li>
         </ul>
       </div>
     </div>

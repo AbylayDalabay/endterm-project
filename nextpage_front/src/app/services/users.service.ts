@@ -25,6 +25,9 @@ export class UsersService {
       password,
     });
   }
+  getFindUsers(query: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.BASE_URL}/users/search/${query}/`);
+  }
   logged(): Observable<User>{
     return this.http.get<User>(`${this.BASE_URL}/logged/`)
   }
