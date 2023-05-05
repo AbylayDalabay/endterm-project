@@ -18,7 +18,14 @@
         <p id="fin">Find user</p>
         <div id="poisk">
             <p id="username">username:</p>
-            <input type="text" id="search">
+            <input type="text" [(ngModel)]="findUser" id="search" placeholder="Search all users.." (input)="search()">
+            <div>
+                <ul id="inBlock" *ngIf="findUser!=''">
+                  <li *ngFor="let user of users">
+                    <a routerLink="/profile/{{user.id}}" id="finding">{{user.username}}</a>
+                  </li>
+                </ul>
+              </div>
         </div>
     </fieldset>
 </div>

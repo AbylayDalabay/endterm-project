@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from api.models.userlist import UserList
 
 @receiver(post_save, sender=User)
-def create_user_wishlists(sender, instance, created, **kwargs):
+def create_user_wishlists(sender, instance, created, **kwargs): #keywordsargument
     if created:
         UserList.objects.create(user=instance, name=f'Reading')
         UserList.objects.create(user=instance, name=f'Read')

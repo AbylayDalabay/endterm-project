@@ -10,6 +10,7 @@ from api.views import category
 from api.views import userlist
 from api.views.reviews import reviews,rating
 from api.views.user import user_info
+from api.views.search import search_books,search_users
 urlpatterns = [
     path('login/', obtain_jwt_token), # post (token)
     path('register/', RegistrationAPIView.as_view()), # post (token)
@@ -27,8 +28,9 @@ urlpatterns = [
     path('books/<int:id>/reviews', reviews),
     # path('current_user/', current_user, name='current_user'),
     # path('test/', userlist.create_user_wishlists)
-    path('books/<int:id>/rating', rating)
-
+    path('books/<int:id>/rating', rating),
+    path('search/<str:term>/', search_books, name='search_books'),
+    path('users/search/<str:term>/', search_users, name='search_users'),
 ]
 
 

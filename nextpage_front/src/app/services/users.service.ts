@@ -22,6 +22,9 @@ export class UsersService {
       password,
     });
   }
+  getFindUsers(query: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.BASE_URL}/users/search/${query}/`);
+  }
   register(username: string,firstname: string, lastname: string,
            password: string, email: string): Observable<AuthToken> {
     return this.http.post<AuthToken>(`${this.BASE_URL}/register/`, {
