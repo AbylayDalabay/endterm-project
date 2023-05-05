@@ -1,5 +1,6 @@
 # noinspection PyUnresolvedReferences
 from api.models.book import Book
+# noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
 from rest_framework import serializers
 

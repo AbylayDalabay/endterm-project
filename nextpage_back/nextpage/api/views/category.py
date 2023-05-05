@@ -3,9 +3,19 @@ from django.shortcuts import Http404
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+# noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
+# noinspection PyUnresolvedReferences
 from api.serializers.book import BookSerializer2
+# noinspection PyUnresolvedReferences
 from api.models.category import Category
+# noinspection PyUnresolvedReferences
+from api.serializers.category import CategorySerializer2
+# noinspection PyUnresolvedReferences
+from api.serializers.book import BookSerializer2
+# noinspection PyUnresolvedReferences
+from api.models.category import Category
+# noinspection PyUnresolvedReferences
 from api.models.book import Book
 
 
