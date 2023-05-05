@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {User} from "../models/user";
 import { Book } from '../models/book';
 import { BookService } from '../services/book.service';
 import 'jqueryui';
@@ -16,7 +17,7 @@ export class TopBarComponent {
     findBook : string = '';
     books : Book[] = []
     // constructor(private bookService: bookService){
-    
+    user: User;
     // }
     showBar(){
       this.check = !this.check;
@@ -30,6 +31,8 @@ export class TopBarComponent {
     // }
   logged = false;
   constructor(private route: Router,private bookService: BookService) {
+    // @ts-ignore
+    this.user = this.user;
 
   }
   ngOnInit(): void {

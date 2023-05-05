@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
-
+# noinspection PyUnresolvedReferences
 from api.models.userlist import UserList
 
 @receiver(post_save, sender=User)
