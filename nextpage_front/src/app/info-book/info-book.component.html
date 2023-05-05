@@ -1,11 +1,13 @@
-<img src="{{book.img}}" id="mainImg">
-<div id="right">
-    <p id="name">{{book.title}}</p>
-    <p id="author">{{book.author}}</p>
-    <p id="des">DESCRIPTION</p>
-    <fieldset id="descr">
+<div *ngIf="home==false">
+    <img src="{{book.img}}" id="mainImg">
+    <div id="right">
+        <p id="name">{{book.title}}</p>
+        <p id="author">{{book.author}}</p>
+        <p id="des">DESCRIPTION</p>
+        <fieldset id="descr">
 
-        <label id="lab">{{book.description}}<a *ngIf="check==true" id="show" (click)="changeDes()"> Show more</a><a *ngIf="check==false" (click)="changeDes()" id="show"> Hide text</a></label>
+            <label id="lab">{{book.description}} <a *ngIf="appear==true"><a *ngIf="check==true" id="show" (click)="changeDes()"> Show more</a><a *ngIf="check==false" (click)="changeDes()" id="show"> Hide text</a></a> </label>
 
-    </fieldset>
+        </fieldset>
+    </div>
 </div>

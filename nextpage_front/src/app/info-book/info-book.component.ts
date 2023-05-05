@@ -12,6 +12,8 @@ export class InfoBookComponent {
     id : number | undefined;
     fullDes: string = ''
     book : Book;
+    home = false;
+    appear = false;
     constructor(private route: ActivatedRoute, private bookService: BookService){
        this.book = {} as Book
     }
@@ -19,12 +21,13 @@ export class InfoBookComponent {
     ngOnInit(): void{
       this.route.paramMap.subscribe((params) => {
         const id = Number(params.get('id'));
-        if (id != undefined){
+        if (id != 0){
           this.getBook(id);
         }
-        else{
-
+        if (id == 0){
+          this.home = true;
         }
+        console.log(id);
       })
     }
     getBook(id:number){
@@ -40,6 +43,14 @@ export class InfoBookComponent {
         this.changeDes();
         this.check = true;
       }
+    }
+    checkSize(){
+        if (this.book.description.length < 328){
+            this.appear = false;
+        }
+        else{
+          this.appear = true;
+        }
     }
     changeDes(){
       if (this.check == true){

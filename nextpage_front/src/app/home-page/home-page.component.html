@@ -1,6 +1,6 @@
 
 <div id="fullHome">
-    <p id="cur">Currently reading</p>
+    <p id="cur" *ngIf="book!=undefined">Currently reading</p>
     <app-info-book></app-info-book>
     <div id="rec">
         <p id="reco">Recommendations</p>

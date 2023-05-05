@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Review } from '../models/review';
 import { Observable } from 'rxjs';
-import { User } from '../user';
+import { Rating } from '../models/rating';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +19,12 @@ export class ReviewService {
   getUser(){
     return this.client.get(`${this.BASE_URL}/current_user/`)
   }
-  postReview(review: string, id_book: number, user_id: number){
+  postReview(review: string,rating:number, id_book: number, user_id: number){
     return this.client.post<Review>(`${this.BASE_URL}/books/${id_book}/reviews`,{
-      review: review, user : user_id, book: id_book
+      review: review,rating:rating, user : user_id, book: id_book
     }).subscribe();
   } 
+  getRating(id_book: number){
+    return this.client.get<Rating>(`${this.BASE_URL}/books/${id_book}/rating`)
+  }
 }

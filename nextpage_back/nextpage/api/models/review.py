@@ -7,5 +7,6 @@ class Review(models.Model) :
     def __str__(self):
         return f'{self.id}'
     review = models.TextField()
+    rating = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE,default=0)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

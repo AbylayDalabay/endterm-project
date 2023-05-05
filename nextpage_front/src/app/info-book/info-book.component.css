@@ -29,6 +29,7 @@ div#right{
 #descr{
     width: 679px;
     height: auto;
+    min-height: 180px;
     border-radius: 8px;
 }
 #lab{
@@ -43,4 +44,9 @@ div#right{
 }
 #show:hover{
     text-decoration: underline;
+}
+#noDes{
+    font-size: 35px;
+    font-family: 'Prompt';
+    line-height: 90px;
 }

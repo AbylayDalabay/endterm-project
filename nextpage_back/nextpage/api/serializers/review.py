@@ -6,6 +6,7 @@ from rest_framework import serializers
 class ReviewSerializer1(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     review = serializers.CharField()
+    rating = serializers.IntegerField()
     book = BookSerializer2()
     user = UserUpdatingSerializer()
 
@@ -15,7 +16,7 @@ class ReviewSerializer2(serializers.ModelSerializer):
     user_name = serializers.SerializerMethodField(source='get_user_name')
     class Meta:
         model = Review
-        fields = ('id', 'review', 'book', 'book_title','user','user_name')
+        fields = ('id', 'review','rating', 'book', 'book_title','user','user_name')
     def get_book_title(self, obj):
         return obj.book.title
     def get_user_name(self,obj):

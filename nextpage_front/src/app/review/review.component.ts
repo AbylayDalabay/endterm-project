@@ -9,10 +9,11 @@ import { ReviewService } from '../services/review.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent {
-  reviews: Review[]
+  // reviews: Review[]
   profile: string | undefined;
   rating: number | undefined;
-  @Input()book: number | undefined;
+  @Input() reviews: Review[] = [];
+  // static reviews: any;
   constructor(private route: ActivatedRoute, private reviewService: ReviewService){
     this.reviews = [] as Review[]
  }
@@ -20,14 +21,14 @@ export class ReviewComponent {
   ngOnInit(): void{
     this.route.paramMap.subscribe((params) => {
       const id = Number(params.get('id'));
-      this.getReviews(id);
+      // this.getReviews(id);
     })
     // this.myList = reviews.filter((book) => book.bookId == this.bookId);
     // alert(this.selectedOption)
     // const selectElement = document.getElementById('select') as HTMLSelectElement;
     // this.selectedOption = selectElement.value;
   }
-  getReviews(id: number){
-    this.reviewService.getReviews(id).subscribe((review) => this.reviews = review);
-  }
+  // getReviews(id: number){
+    // this.reviewService.getReviews(id).subscribe((review) => this.reviews = review);
+  // }
 }

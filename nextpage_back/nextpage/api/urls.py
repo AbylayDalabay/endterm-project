@@ -3,24 +3,32 @@ from django.urls import path
 from api import views
 from rest_framework_jwt.views import obtain_jwt_token
 from api.views.signup import RegistrationAPIView
+from api.views.user import user_info
 # noinspection PyUnresolvedReferences
 from api.views.books import books, book_by_id
 from api.views import category
-from api.views.userlist import UserListAPI
-from api.views.reviews import reviews
-from api.views.user import current_user
+from api.views import userlist
+from api.views.reviews import reviews,rating
+from api.views.user import user_info
 urlpatterns = [
     path('login/', obtain_jwt_token), # post (token)
     path('register/', RegistrationAPIView.as_view()), # post (token)
     path('books/', books),
     path('books/<int:id>/', book_by_id),
+    path('logged/', user_info),
 
     path('categories/', category.CategoryListAPIView.as_view()),
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
     path("categories/<int:category_id>/books/", category.BooksByCategoryAPIView.as_view()),
-    path('ist/<int:user_id>/<int:list_id>/books/', UserListAPI.as_view()),
+    path('list/<int:list_id>/books/', userlist.UserListDetailAPI.as_view()),
+    path('list/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
+    path('list/', userlist.GetUsersListsAPI.as_view()),
+    # path('list/<int:id>/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
     path('books/<int:id>/reviews', reviews),
-    path('current_user/', current_user, name='current_user'),
+    # path('current_user/', current_user, name='current_user'),
     # path('test/', userlist.create_user_wishlists)
+    path('books/<int:id>/rating', rating)
 
 ]
+
+
