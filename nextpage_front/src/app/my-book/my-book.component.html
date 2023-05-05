@@ -2,8 +2,8 @@
         <h2>My Lists</h2>
 
         <div>
-                <div *ngFor="let catalog of catalog_list" class="card">
-                        <app-catalog [catalog_name]="catalog.name"></app-catalog>
+                <div *ngFor="let list of userList" class="card">
+                        <app-user-list [list]="list"></app-user-list>
                 </div>
         </div>
 </div>

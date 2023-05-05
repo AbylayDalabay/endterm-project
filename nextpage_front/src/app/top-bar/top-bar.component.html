@@ -38,7 +38,7 @@
         <button class="loginProfile3">Sign out</button> -->
 
       <div *ngIf="check==true" class="loginProfile">
-        <button routerLink="/profile/1" class="loginProfile1">Profile</button>
+        <button routerLink="/profile" class="loginProfile1">Profile</button>
         <button routerLink="/manage-account" class="loginProfile2">Manage account</button>
         <button class="loginProfile3" *ngIf="logged" (click)="logOut()">Sign out</button>
 

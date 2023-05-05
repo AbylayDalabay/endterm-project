@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-top-bar',
@@ -10,7 +11,7 @@ export class TopBarComponent {
     check = false;
     findBook : string = '';
     // constructor(private bookService: bookService){
-
+    user: User;
     // }
     showBar(){
       this.check = !this.check;
@@ -24,6 +25,8 @@ export class TopBarComponent {
     // }
   logged = false;
   constructor(private route: Router) {
+    // @ts-ignore
+    this.user = this.user;
   }
 
   ngOnInit(): void {

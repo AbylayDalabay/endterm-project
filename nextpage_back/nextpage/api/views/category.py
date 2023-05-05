@@ -10,6 +10,12 @@ from api.serializers.book import BookSerializer2
 # noinspection PyUnresolvedReferences
 from api.models.category import Category
 # noinspection PyUnresolvedReferences
+from api.serializers.category import CategorySerializer2
+# noinspection PyUnresolvedReferences
+from api.serializers.book import BookSerializer2
+# noinspection PyUnresolvedReferences
+from api.models.category import Category
+# noinspection PyUnresolvedReferences
 from api.models.book import Book
 
 
