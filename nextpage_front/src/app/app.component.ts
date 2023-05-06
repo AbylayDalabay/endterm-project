@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "./services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent{
   title = 'nextpage_front';
+  constructor(public auth: AuthService, private router: Router) {
+  }
 }
