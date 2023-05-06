@@ -32,7 +32,7 @@ export class UserlistService {
     return this.client.get<UserList[]>(`${this.BASE_URL}/lists/book/${id}/`)
   }
   getBooksOfOther(listname:string, user_id: number): Observable<UserList[]>{
-    return this.client.get<UserList[]>(`${this.BASE_URL}/lists/${listname}/books/${user_id}`)
+    return this.client.get<UserList[]>(`${this.BASE_URL}/list/${listname}/books/${user_id}/`)
   }
   
   
