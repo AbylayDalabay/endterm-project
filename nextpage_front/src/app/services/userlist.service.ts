@@ -28,9 +28,11 @@ export class UserlistService {
   deletetBookFromList(listName: string, book: Book2): Observable<UserList> {
     return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/books/`, { body: book, responseType: 'json' });
   }
-
   getListOfBook(id: number): Observable<UserList[]>{
     return this.client.get<UserList[]>(`${this.BASE_URL}/lists/book/${id}/`)
+  }
+  getBooksOfOther(listname:string, user_id: number): Observable<UserList[]>{
+    return this.client.get<UserList[]>(`${this.BASE_URL}/lists/${listname}/books/${user_id}`)
   }
   
   

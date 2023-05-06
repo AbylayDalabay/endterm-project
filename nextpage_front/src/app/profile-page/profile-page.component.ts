@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import 'jqueryui';
 import { LogService } from '../services/log.service';
+import { UserlistService } from '../services/userlist.service';
 declare var $: any;
 
 @Component({
@@ -18,7 +19,7 @@ export class ProfilePageComponent implements OnInit{
   wil = 0;
   id = 0;
   users : User[] = []
-      constructor(private usersService: UsersService, private logService: LogService, private route: Router,private routed: ActivatedRoute,) {
+      constructor(private usersService: UsersService, private logService: LogService, private route: Router,private routed: ActivatedRoute,private userList: UserlistService) {
     // @ts-ignore
     this.user = this.user;
     }
@@ -27,16 +28,17 @@ export class ProfilePageComponent implements OnInit{
       this.routed.paramMap.subscribe((params) => {
         this.id = Number(params.get('id'));
         if (this.id != 0){
-          this.getOtherUser(this.id );
+          // console.log(this.id)
+          // this.getOtherUser(this.user.id);
         }
         if (this.id  == 0){
           // this.home = true;
           this.getUser();
+          this.getRead()
+          this.getAlr();
+          this.getWill();
         }
       })
-      this.getRead()
-      this.getAlr();
-      this.getWill();
       $('#search').autocomplete({
         source: (request: { term: string; }, response: (arg0: User[]) => void) => {
           this.usersService.getFindUsers(request.term).subscribe(data => {
@@ -49,6 +51,11 @@ export class ProfilePageComponent implements OnInit{
         }
       });
     }
+  getUserInfo(user_id:number){
+    this.userList.getBooksOfOther('Read',user_id).subscribe((alr) => this.alr = alr.length);
+    this.userList.getBooksOfOther('Reading',user_id).subscribe((alr) => this.cur = alr.length);
+    this.userList.getBooksOfOther('Planned',user_id).subscribe((alr) => this.wil = alr.length);
+  }
   errorMessage = '';
   user: User;
   getLetter(): string {
