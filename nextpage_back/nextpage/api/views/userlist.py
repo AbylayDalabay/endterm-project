@@ -134,11 +134,16 @@ class BookOneOtherListAPI(APIView):
         user = User.objects.get(pk=user_id)
         userlist = self.getListObject(list_name, user)
         books = userlist.books.all()
+
         # if (books.count()==0):
         #     return JsonResponse({"not":"found"})
         # else:
+
+        if (books.count()==0):
+            return Response(books)
+        else:
             
-        serializer = BookSerializer2(books, many=True)
+                serializer = BookSerializer2(books, many=True)
         #     serializer = ListSerializer2(userlist)
-        return Response(serializer.data)
+                return Response(serializer.data)
     
