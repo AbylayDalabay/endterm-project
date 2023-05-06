@@ -24,7 +24,9 @@ export class UsersService {
     return this.http.put<User>(`${this.BASE_URL}/profile/`, user);
 
   }
-
+  getUserById(id:number): Observable<User>{
+    return this.http.get<User>(`${this.BASE_URL}/profile/${id}`);
+  }
   login(username: string, password: string): Observable<AuthToken> {
     return this.http.post<AuthToken>(`${this.BASE_URL}/login/`, {
       username,
