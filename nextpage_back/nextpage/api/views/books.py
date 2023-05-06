@@ -36,4 +36,6 @@ def book_by_id(request, id):
     if request.method == 'GET':
         serializer = BookSerializer2(book,many=False)
         return Response(serializer.data)
-    
+# def delete_books_with_characters():
+#     books_to_delete = Book.objects.filter(title__icontains='Ã¶©âÄÐµ½Ð°')
+#     books_to_delete.delete()

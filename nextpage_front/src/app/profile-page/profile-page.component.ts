@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import 'jqueryui';
 import { LogService } from '../services/log.service';
@@ -16,14 +16,24 @@ export class ProfilePageComponent implements OnInit{
   cur = 0;
   alr = 0;
   wil = 0;
+  id = 0;
   users : User[] = []
-      constructor(private usersService: UsersService, private logService: LogService, private route: Router) {
+      constructor(private usersService: UsersService, private logService: LogService, private route: Router,private routed: ActivatedRoute,) {
     // @ts-ignore
     this.user = this.user;
     }
     
     ngOnInit(): void {
-      this.getUser();
+      this.routed.paramMap.subscribe((params) => {
+        this.id = Number(params.get('id'));
+        if (this.id != 0){
+          this.getOtherUser(this.id );
+        }
+        if (this.id  == 0){
+          // this.home = true;
+          this.getUser();
+        }
+      })
       this.getRead()
       this.getAlr();
       this.getWill();
@@ -62,7 +72,11 @@ export class ProfilePageComponent implements OnInit{
         this.wil = read.length
       }});
   }
+  getOtherUser(id: number){
+    this.usersService.getUserById(id).subscribe((user) => this.user = user);
+  }
   getUser(): void {
+
     this.usersService.getProfile().subscribe(user => {
       this.user = user;
     }, error => {

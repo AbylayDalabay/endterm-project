@@ -30,6 +30,8 @@ export class InfoBookComponent {
           this.userList.getBooksOfList('Reading').subscribe((books) => {
             if(books != undefined && books.length != 0){
                 this.book = books[0];
+                this.getInfo(this.book.description);
+                this.changeDes();
             }
           })
         }
@@ -46,8 +48,10 @@ export class InfoBookComponent {
     getInfo(description:string): void{
       this.fullDes = description;
       if (description.length >= 328){
-        this.changeDes();
+        this.appear = true;
         this.check = true;
+        this.changeDes();
+        // this.check = true;
       }
     }
     checkSize(){

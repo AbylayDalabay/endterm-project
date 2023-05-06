@@ -23,7 +23,7 @@ from api.views.user import user_info
 
 # noinspection PyUnresolvedReferences
 from api.views.profile import ProfileDetailAPIView
-from api.views.user import user_info
+from api.views.user import user_info,getUser
 from api.views.search import search_books,search_users
 
 
@@ -34,7 +34,7 @@ urlpatterns = [
     path('books/', books),
     path('books/<int:id>/', book_by_id),
     path('logged/', user_info),
-
+    path('profile/<int:id>', getUser),
     path('categories/', category.CategoryListAPIView.as_view()),
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
     path("categories/<int:category_id>/books/", category.BooksByCategoryAPIView.as_view()),
