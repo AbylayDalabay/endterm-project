@@ -31,12 +31,13 @@
         </div>
         <div>
             <select id="select" (change)="saveOption()">
-                <option value="AddBook" id="option">add book</option>
+                <option value="AddBook" id="option">{{option}}</option>
                 <option value="Reading" id="option">Reading</option>
                 <option value="Read" id="option">Read</option>
-                <option value="Favoirites" id="option">Favoirites</option>
+                <option value="Favorites" id="option">Favorites</option>
                 <option value="Planned" id="option">Planned</option>
                 <option value="Abandoned" id="option">Abandoned</option>
+                <option value="Delete" id="option">Delete</option>
             </select>
         </div>
         <div>

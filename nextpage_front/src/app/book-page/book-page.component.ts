@@ -16,8 +16,10 @@ import { UserList } from '../models/userlist';
 })
 
 export class BookPageComponent implements OnInit{
+    option = 'add book'
     b: Book2 ={} as Book2;
     lists: UserList[] = [];
+    lists2: UserList[] = [];
     userlist: UserList = {} as UserList;
     rate : number = 0;
     rating: number = 0;
@@ -30,23 +32,29 @@ export class BookPageComponent implements OnInit{
     book : Book
     userId : number = 0
     reviews: Review[] = []
+    selectElement = document.getElementById('select') as HTMLSelectElement;
     constructor(private route: ActivatedRoute, private bookService: BookService, private reviewService: ReviewService,private userService: UsersService, private userListService: UserlistService){
       //   this.myButton = document.getElementById('show')!;
       //   this.myButton.onclick = this.handleClick.bind(this);
       this.book = {} as Book;
+
     }
     ngOnInit(): void{
       const ratingItemsList = document.querySelectorAll('.rating_item');
       const ratingItemsArray = Array.prototype.slice.call(ratingItemsList);
       ratingItemsArray.forEach(item => item.parentNode.dataset.totalValue = this.rate)
+      this.userService.logged().subscribe((user) => this.userId = user.id)
+      this.selectedOption = 'Reading';
       this.route.paramMap.subscribe((params) => {
         this.id = Number(params.get('id'));
         this.getCurrentRating();
         this.getReviews(this.id);
         this.b.book = this.id;
+        this.getUsersLists();
+        this.getListOfBook();
       })
       // this.getListOfBook();
-      this.getUsersLists();
+      
       
       
     }
@@ -72,8 +80,6 @@ export class BookPageComponent implements OnInit{
     getBook(id:number){
       this.bookService.getBookById(id).subscribe((book) => {this.book = book;
       console.log(this.book.title)});
-   
-
     }
     Star(rating: number){
       const myStar = document.getElementById('rating_item_part');
@@ -88,17 +94,18 @@ export class BookPageComponent implements OnInit{
         ratingItemsArray.forEach(item => item.parentNode.dataset.totalValue = this.rate)
     }
     saveOption(){
-      const selectElement = document.getElementById('select') as HTMLSelectElement;
-      this.selectedOption = selectElement.value;
-
-
+      this.selectElement = document.getElementById('select') as HTMLSelectElement;
+      this.selectedOption = this.selectElement.value;
+      // this.selectedOption = this.userListService.
+     
       for (let i = 0; i < this.lists.length; i++) {
-        if (this.lists[i].name !== this.selectedOption) {
+        if (this.lists[i].name != this.selectedOption) {
           this.userListService.deletetBookFromList(this.lists[i].name, this.b).subscribe((userlist) => {
             this.lists[i] = userlist;
           });
         }
       }
+   
       // if (this.lists.length > 0) {
       //   // this.selectedOption = this.lists[0].name;
       //   this.userListService.deletetBookFromList(this.lists[0].name, this.b).subscribe((userlist) => {
@@ -106,7 +113,7 @@ export class BookPageComponent implements OnInit{
       //   });
       // }
       
-      if (this.selectedOption !== 'AddBook') {
+      if (this.selectedOption != 'AddBook' && this.selectedOption != 'Delete') {
         this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {
           this.userlist = userlist;
         });
@@ -137,6 +144,16 @@ export class BookPageComponent implements OnInit{
     }
 
     getListOfBook(){
-      this.userListService.getListOfBook(this.book.id).subscribe((list) => this.lists = list);
+      this.userListService.getListOfBook(this.id).subscribe((list) => {this.lists2 = list;
+        if (this.lists2.length > 0){
+        for(let list1 of list){
+          if(Number(list1.user) == this.userId){
+              this.option = list1.name
+          }
+        }
+        // this.option = this.lists2[0].name;
+      };
+      }
+      );
     }
 }

@@ -78,13 +78,13 @@ class BookOneUserListAPI(APIView):
         user = request.user
         userlist = self.getListObject(list_name, user)
         books = userlist.books.all()
-        if (books.count()==0):
-            return JsonResponse({"not":"found"})
-        else:
+        # if (books.count()==0):
+        #     return JsonResponse({"not":"found"})
+        # else:
             
-            serializer = BookSerializer2(books, many=True)
+        serializer = BookSerializer2(books, many=True)
         #     serializer = ListSerializer2(userlist)
-            return Response(serializer.data)
+        return Response(serializer.data)
     def post(self, request, list_name):
         data = json.loads(request.body)
 
@@ -115,3 +115,35 @@ class ListOfBook(APIView):
         ulist = book.userlist_set.all()
         serializer = ListSerializer2(ulist, many=True)
         return Response(serializer.data)
+    
+
+class BookOneOtherListAPI(APIView):
+    def getListObject(self, list_name, user):
+        try:
+            return UserList.objects.get(name=list_name, user=user)
+        except User.DoesNotExist as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+        
+    def getBook(self, id):
+        try:
+            return Book.objects.get(pk=id)
+        except Book.DoesNotExist as e:
+            return HttpResponse(status=404)
+
+    def get(self, request, list_name, user_id):
+        user = User.objects.get(pk=user_id)
+        userlist = self.getListObject(list_name, user)
+        books = userlist.books.all()
+
+        # if (books.count()==0):
+        #     return JsonResponse({"not":"found"})
+        # else:
+
+        if (books.count()==0):
+            return Response(books)
+        else:
+            
+                serializer = BookSerializer2(books, many=True)
+        #     serializer = ListSerializer2(userlist)
+                return Response(serializer.data)
+    

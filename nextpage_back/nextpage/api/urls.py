@@ -47,11 +47,10 @@ urlpatterns = [
     path('profile/', ProfileDetailAPIView.as_view()),
     # path('list/<int:id>/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
     path('books/<int:id>/reviews', reviews),
-    # path('current_user/', current_user, name='current_user'),
-    # path('test/', userlist.create_user_wishlists)
-
-        path('books/<int:id>/rating', rating),
+    path('books/<int:id>/rating', rating),
     path('search/<str:term>/', search_books, name='search_books'),
     path('users/search/<str:term>/', search_users, name='search_users'),
     path('books/popular', get_random_books),
+    path('list/<str:list_name>/books/<int:user_id>/', userlist.BookOneOtherListAPI.as_view()),
+    # path('')
 ]

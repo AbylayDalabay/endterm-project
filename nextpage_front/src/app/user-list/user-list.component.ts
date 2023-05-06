@@ -9,10 +9,10 @@ import { Book } from '../models/book';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit{
-  @Input() list: UserList;
-  books : Book[] = [];
+  @Input() list: UserList ;
+  books : Book[] | undefined;
 
-  constructor(private userListService: UserlistService, private route: ActivatedRoute,) {
+  constructor(private userListService: UserlistService, ) {
     this.list = {} as UserList;
     
     // this.books = this.list.books

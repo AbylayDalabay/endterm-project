@@ -22,7 +22,7 @@
             <div>
                 <ul id="inBlock" *ngIf="findUser!=''">
                   <li *ngFor="let user of users">
-                    <a routerLink="/profile/{{user.id}}" id="finding">{{user.username}}</a>
+                    <a routerLink="/profile/{{user.id}}" id="finding" (click)="getUserInfo(user.id)">{{user.username}}</a>
                   </li>
                 </ul>
               </div>

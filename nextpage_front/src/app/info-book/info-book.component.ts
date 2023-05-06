@@ -35,7 +35,7 @@ export class InfoBookComponent {
             }
           })
         }
-        console.log(id);
+        console.log(this.book);
       })
     }
     getBook(id:number){
