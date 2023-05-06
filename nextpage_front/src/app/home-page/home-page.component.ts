@@ -25,14 +25,12 @@ export class HomePageComponent {
       this.id = Number(this.route.snapshot.paramMap.get('id'));
       this.getPopular();
       this.getReco();
-      this.userService.logged().subscribe((user) => 
-          this.userList.getBooksOfList('Read').subscribe((list) => 
-            {this.list = list;this.getBook()}));
     }
     getCur(){
       this.userList.getBooksOfList('Reading').subscribe((books) => {
         if(books != undefined && books.length != 0){
             this.book = books[0];
+            console.log(this.book)
         }
       })
     }
@@ -41,11 +39,5 @@ export class HomePageComponent {
     }
     getReco(){
       this.bookService.getRandomBooks().subscribe((pop) => this.recommendations = pop);
-    }
-    getBook(){
-      if(this.list.length > 0){
-        this.book = this.list[this.list.length - 1];
-      }
-      console.log(this.book)
     }
 }

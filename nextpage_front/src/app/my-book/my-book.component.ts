@@ -24,6 +24,7 @@ export class MyBookComponent implements OnInit{
   getUserList() {
     this.userListService.getUsersLists().subscribe((userList) =>{
       this.userList = userList;
+      console.log(this.userList[0].books)
     })
   }
 }

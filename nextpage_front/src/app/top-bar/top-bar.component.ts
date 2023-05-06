@@ -15,6 +15,7 @@ declare var $: any;
 })
 
 export class TopBarComponent {
+  
     check = false;
     findBook : string = '';
     books : Book[] = []

@@ -1,6 +1,6 @@
-
-    <a routerLink="/book/{{book.id}}"><img src="{{book.img}}" id="mainImg"></a>
-    <div id="right">
+<div *ngIf="book!=undefined">
+    <a routerLink="/book/{{book.id}}"><img src="{{book.img}}" id="mainImg" *ngIf="book.img!=undefined"></a>
+    <div id="right" *ngIf="book.title!=undefined">
         <p id="name">{{book.title}}</p>
         <p id="author">{{book.author}}</p>
         <p id="des">DESCRIPTION</p>
@@ -10,3 +10,4 @@
 
         </fieldset>
     </div>
+</div>
