@@ -113,7 +113,7 @@ export class BookPageComponent implements OnInit{
       //   });
       // }
       
-      if (this.selectedOption != 'AddBook') {
+      if (this.selectedOption != 'AddBook' && this.selectedOption != 'Delete') {
         this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {
           this.userlist = userlist;
         });

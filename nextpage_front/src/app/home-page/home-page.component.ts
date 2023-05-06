@@ -23,6 +23,12 @@ export class HomePageComponent {
     }
     ngOnInit(): void{
       this.id = Number(this.route.snapshot.paramMap.get('id'));
+      this.userList.getBooksOfList('Reading').subscribe((books) => {
+        if(books.length > 0){
+          this.book = books[0]
+        }
+      }
+      );
       this.getPopular();
       this.getReco();
     }
