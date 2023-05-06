@@ -18,7 +18,7 @@ export class TopBarComponent {
   
     check = false;
     findBook : string = '';
-    books : Book[] = []
+    books : Book[] | undefined;
     // constructor(private bookService: bookService){
     user: User;
     // }
