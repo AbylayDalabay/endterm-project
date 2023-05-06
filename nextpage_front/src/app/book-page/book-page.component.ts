@@ -44,9 +44,10 @@ export class BookPageComponent implements OnInit{
         this.getCurrentRating();
         this.getReviews(this.id);
         this.b.book = this.id;
+        this.getUsersLists();
       })
       // this.getListOfBook();
-      this.getUsersLists();
+      
       
       
     }
@@ -72,8 +73,6 @@ export class BookPageComponent implements OnInit{
     getBook(id:number){
       this.bookService.getBookById(id).subscribe((book) => {this.book = book;
       console.log(this.book.title)});
-   
-
     }
     Star(rating: number){
       const myStar = document.getElementById('rating_item_part');
@@ -91,14 +90,15 @@ export class BookPageComponent implements OnInit{
       const selectElement = document.getElementById('select') as HTMLSelectElement;
       this.selectedOption = selectElement.value;
 
-
+     
       for (let i = 0; i < this.lists.length; i++) {
-        if (this.lists[i].name !== this.selectedOption) {
+        if (this.lists[i].name != this.selectedOption) {
           this.userListService.deletetBookFromList(this.lists[i].name, this.b).subscribe((userlist) => {
             this.lists[i] = userlist;
           });
         }
       }
+   
       // if (this.lists.length > 0) {
       //   // this.selectedOption = this.lists[0].name;
       //   this.userListService.deletetBookFromList(this.lists[0].name, this.b).subscribe((userlist) => {
@@ -106,7 +106,7 @@ export class BookPageComponent implements OnInit{
       //   });
       // }
       
-      if (this.selectedOption !== 'AddBook') {
+      if (this.selectedOption != 'AddBook') {
         this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {
           this.userlist = userlist;
         });
@@ -136,7 +136,7 @@ export class BookPageComponent implements OnInit{
       // console.log('Review:', this.review);
     }
 
-    getListOfBook(){
-      this.userListService.getListOfBook(this.book.id).subscribe((list) => this.lists = list);
-    }
+    // getListOfBook(){
+    //   this.userListService.getListOfBook(this.book.id).subscribe((list) => this.lists = list);
+    // }
 }
