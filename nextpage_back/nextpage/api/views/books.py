@@ -24,6 +24,7 @@ def get_random_books(request):
     random_ids = [random.randrange(total_books) for i in range(3)]
     random_books = Book.objects.filter(id__in=random_ids).values()
     return JsonResponse(list(random_books),safe=False)
+
 @api_view(['GET'])
 def book_by_id(request, id):
     try:

@@ -29,6 +29,9 @@ export class UserlistService {
     return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/books/`, { body: book, responseType: 'json' });
   }
 
+  getListOfBook(id: number): Observable<UserList[]>{
+    return this.client.get<UserList[]>(`${this.BASE_URL}/lists/book/${id}/`)
+  }
   
   
 
