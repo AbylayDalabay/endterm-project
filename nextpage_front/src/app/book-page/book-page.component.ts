@@ -45,7 +45,9 @@ export class BookPageComponent implements OnInit{
         this.getReviews(this.id);
         this.b.book = this.id;
       })
+      // this.getListOfBook();
       this.getUsersLists();
+      
       
     }
     getUsersLists() {
@@ -88,25 +90,27 @@ export class BookPageComponent implements OnInit{
     saveOption(){
       const selectElement = document.getElementById('select') as HTMLSelectElement;
       this.selectedOption = selectElement.value;
-      // for( let i = 0; i<5; i++) {
-      //   if (i != this.book.id)
-      //     this.userListService.deletetBookFromList(this.lists[i].name, this.b).subscribe((userlist) => this.lists[i] = userlist);
-      // }
-      // alert(this.selectedOption)
-      // this.userListService.deletetBookFromList(this.lists[0].name, this.b).subscribe((userlist) => this.lists[0] = userlist);
-      // this.userListService.deletetBookFromList(this.lists[1].name, this.b).subscribe((userlist) => this.lists[1] = userlist);
-      // this.userListService.deletetBookFromList(this.lists[2].name, this.b).subscribe((userlist) => this.lists[2] = userlist);
-      // this.userListService.deletetBookFromList(this.lists[3].name, this.b).subscribe((userlist) => this.lists[3] = userlist);
-      // this.userListService.deletetBookFromList(this.lists[4].name, this.b).subscribe((userlist) => this.lists[4] = userlist);
 
-      if (this.selectedOption != "AddBook"){
-        this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {this.userlist = userlist});
+
+      for (let i = 0; i < this.lists.length; i++) {
+        if (this.lists[i].name !== this.selectedOption) {
+          this.userListService.deletetBookFromList(this.lists[i].name, this.b).subscribe((userlist) => {
+            this.lists[i] = userlist;
+          });
+        }
       }
-      // this.albumsService.addAlbum(this.newAlbum).subscribe((album) => {
-      //   this.albums.push(album);
-      //   this.loaded = true;
-      //   this.newAlbum = {} as Album;
-      // });
+      // if (this.lists.length > 0) {
+      //   // this.selectedOption = this.lists[0].name;
+      //   this.userListService.deletetBookFromList(this.lists[0].name, this.b).subscribe((userlist) => {
+      //     this.lists[0] = userlist;
+      //   });
+      // }
+      
+      if (this.selectedOption !== 'AddBook') {
+        this.userListService.postBookToList(this.selectedOption, this.b).subscribe((userlist) => {
+          this.userlist = userlist;
+        });
+      }
     }
 
     onSubmit() {
@@ -130,5 +134,9 @@ export class BookPageComponent implements OnInit{
       // console.log('Name:', this.name);
       // console.log('Rating:', this.rate);
       // console.log('Review:', this.review);
+    }
+
+    getListOfBook(){
+      this.userListService.getListOfBook(this.book.id).subscribe((list) => this.lists = list);
     }
 }

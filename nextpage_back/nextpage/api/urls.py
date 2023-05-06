@@ -5,6 +5,7 @@ from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token
 # noinspection PyUnresolvedReferences
 from api.views.signup import RegistrationAPIView
+# noinspection PyUnresolvedReferences
 from api.views.user import user_info
 # noinspection PyUnresolvedReferences
 from api.views.books import books, book_by_id, get_random_books
@@ -16,10 +17,15 @@ from api.views.userlist import UserListAPI
 from api.views import category
 # noinspection PyUnresolvedReferences
 from api.views import userlist
-from api.views.profile import ProfileDetailAPIView
+
 from api.views.reviews import reviews,rating
 from api.views.user import user_info
+
+# noinspection PyUnresolvedReferences
+from api.views.profile import ProfileDetailAPIView
+from api.views.user import user_info
 from api.views.search import search_books,search_users
+
 
 urlpatterns = [
     
@@ -33,8 +39,8 @@ urlpatterns = [
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
     path("categories/<int:category_id>/books/", category.BooksByCategoryAPIView.as_view()),
     path('ist/<int:user_id>/<int:list_id>/books/', UserListAPI.as_view()),
-    path('list/<int:list_id>/books/', userlist.UserListDetailAPI.as_view()),\
-    
+    path('list/<int:list_id>/books/', userlist.UserListDetailAPI.as_view()),
+    path('lists/book/<int:book_id>/', userlist.ListOfBook.as_view()),
     path('list/<str:list_name>/books/', userlist.BookOneUserListAPI.as_view()),
 
     path('list/', userlist.GetUsersListsAPI.as_view()),
@@ -43,10 +49,9 @@ urlpatterns = [
     path('books/<int:id>/reviews', reviews),
     # path('current_user/', current_user, name='current_user'),
     # path('test/', userlist.create_user_wishlists)
-    path('books/<int:id>/rating', rating),
+
+        path('books/<int:id>/rating', rating),
     path('search/<str:term>/', search_books, name='search_books'),
     path('users/search/<str:term>/', search_users, name='search_users'),
-    path('books/popular', get_random_books)
+    path('books/popular', get_random_books),
 ]
-
-

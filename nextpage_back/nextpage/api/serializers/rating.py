@@ -1,4 +1,6 @@
+# noinspection PyUnresolvedReferences
 from api.models.rating import Rating
+# noinspection PyUnresolvedReferences
 from api.serializers.book import BookSerializer2
 from rest_framework import serializers
 

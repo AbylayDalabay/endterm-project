@@ -29,7 +29,6 @@ from api.serializers.userlist import ListSerializer2
 
 
 
-
 class UserListAPI(APIView):
     
 
@@ -110,3 +109,9 @@ class BookOneUserListAPI(APIView):
 
 
 
+class ListOfBook(APIView):
+    def get(self, request, book_id):
+        book = Book.objects.get(pk=book_id)
+        ulist = book.userlist_set.all()
+        serializer = ListSerializer2(ulist, many=True)
+        return Response(serializer.data)

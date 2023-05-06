@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from "../models/user";
+
 import { Book } from '../models/book';
+
 import { BookService } from '../services/book.service';
+import {User} from "../models/user";
 import 'jqueryui';
 declare var $: any;
 

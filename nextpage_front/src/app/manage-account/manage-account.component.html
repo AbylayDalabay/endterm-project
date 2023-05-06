@@ -14,15 +14,15 @@
           <form class="form-horizontal profile-update">
 
             <h4>Change username and email</h4>
-            <input class="text" type="text" name="Username" placeholder="Username" required="">
-            <input class="text email" type="email" name="email" placeholder="Email" required="">
+            <input class="text" type="text" name="Username" placeholder="Username" required="" [(ngModel)]="user.username">
+            <input class="text email" type="email" name="email" placeholder="Email" required="" [(ngModel)]="user.email">
 
             <div class="form-group clearfix">
               <div class="col-sm-12 control-label">
-                <h4>Change password</h4>
+<!--                <h4>Change password</h4>-->
               </div>
-              <input class="text" type="password" name="password" placeholder="Old Password" required="">
-              <input class="text w3lpass" type="password" name="password" placeholder="New Password" required="">
+<!--              <input class="text" type="password" name="password" placeholder="Old Password" required="">-->
+<!--              <input class="text w3lpass" type="password" name="password" placeholder="New Password" required="" [(ngModel)]="user.password">-->
             </div>
           </form>
 
