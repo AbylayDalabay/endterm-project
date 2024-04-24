@@ -57,7 +57,7 @@ export class ProfilePageComponent implements OnInit{
       });
     }
   getUserInfo(user_id:number){
-    this.userList.getBooksOfOther('Read',user_id).subscribe((alr) => 
+    this.userList.getGameOfOther('Read',user_id).subscribe((alr) => 
     {
       if(alr != undefined){
         this.alr = alr.length;
@@ -66,7 +66,7 @@ export class ProfilePageComponent implements OnInit{
         this.alr = 0
       }
     });
-    this.userList.getBooksOfOther('Reading',user_id).subscribe((alr) => 
+    this.userList.getGameOfOther('Reading',user_id).subscribe((alr) => 
     {
       if(alr != undefined){
         this.cur = alr.length;
@@ -76,7 +76,7 @@ export class ProfilePageComponent implements OnInit{
         this.cur = 0
       }
     });
-    this.userList.getBooksOfOther('Planned',user_id).subscribe((alr) => 
+    this.userList.getGameOfOther('Planned',user_id).subscribe((alr) => 
     {
       if(alr != undefined){
         this.wil = alr.length;

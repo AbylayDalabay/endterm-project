@@ -8,7 +8,7 @@ import {ProfilePageComponent} from './profile-page/profile-page.component'
 
 import { GamePageComponent } from './game-page/game-page.component';
 import { MyGameComponent } from './my-game/my-game.component';
-import { InfoGameComponent } from './info-book/info-game.component';
+import { InfoGameComponent } from './info-game/info-game.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
 import { CatalogGamesComponent } from './catalog-books/catalog-games.component';
 import {AuthGuard} from "./guards/auth.guard";

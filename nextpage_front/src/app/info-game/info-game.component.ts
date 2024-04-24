@@ -27,7 +27,7 @@ export class InfoGameComponent {
         }
         if (id == 0){
           // this.home = true;
-          this.userList.getBooksOfList('Reading').subscribe((books) => {
+          this.userList.getGameOfList('Reading').subscribe((books) => {
             if(books != undefined && books.length != 0){
                 this.game = books[0];
                 this.getInfo(this.game.description);
@@ -39,7 +39,7 @@ export class InfoGameComponent {
       })
     }
     getBook(id:number){
-      this.gameService.getBookById(id).subscribe((game:any) => {this.game = game;
+      this.gameService.getGameById(id).subscribe((game:any) => {this.game = game;
       this.getInfo(this.game.description);});
     }
     getHome(){

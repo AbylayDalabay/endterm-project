@@ -19,7 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 // import { CatalogComponent } from './catalog/catalog.component';
 
-import { InfoGameComponent } from './info-book/info-game.component';
+import { InfoGameComponent } from './info-game/info-game.component';
 
 import { GamePageComponent} from './game-page/game-page.component';
 import { MyGameComponent } from './my-game/my-game.component';

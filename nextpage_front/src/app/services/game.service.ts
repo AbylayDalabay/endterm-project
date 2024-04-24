@@ -13,7 +13,7 @@ export class GameService {
   constructor(private client: HttpClient) { }
   
   getGames(): Observable<Game[]>{
-    return this.client.get<Game[]>(`${this.BASE_URL}/books`)
+    return this.client.get<Game[]>(`${this.BASE_URL}/games`)
   }
   getFindGames(query: string): Observable<Game[]> {
     return this.client.get<Game[]>(`${this.BASE_URL}/search/${query}/`);
@@ -22,9 +22,9 @@ export class GameService {
     return this.client.get<Game[]>(`${this.BASE_URL}/categories/${category_id}/books`)
   }
   getRandomGames(): Observable<Game[]>{
-    return this.client.get<Game[]>(`${this.BASE_URL}/books/popular`)
+    return this.client.get<Game[]>(`${this.BASE_URL}/games/popular`)
   }
   getGameById(id: number): Observable<Game>{
-    return this.client.get<Game>(`${this.BASE_URL}/books/${id}/`)
+    return this.client.get<Game>(`${this.BASE_URL}/games/${id}/`)
   }
 }

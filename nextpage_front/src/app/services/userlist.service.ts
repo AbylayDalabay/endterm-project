@@ -17,24 +17,24 @@ export class UserlistService {
   }
 
   getGameOfList(name: string): Observable<Game[]>{
-    return this.client.get<Game[]>(`${this.BASE_URL}/list/${name}/books`)
+    return this.client.get<Game[]>(`${this.BASE_URL}/list/${name}/games/`)
   }
 
  
   postGameToList(listName:string, game: Game2): Observable<UserList>{
-    return this.client.post<UserList>(`${this.BASE_URL}/list/${listName}/books/`, game)
+    return this.client.post<UserList>(`${this.BASE_URL}/list/${listName}/games/`, game)
   }
  
   deletetGameFromList(listName: string, game: Game2): Observable<UserList> {
-    return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/books/`, { body: game, responseType: 'json' });
+    return this.client.delete<UserList>(`${this.BASE_URL}/list/${listName}/games/`, { body: game, responseType: 'json' });
   }
   getListOfGame(id: number): Observable<UserList[]>{
-    return this.client.get<UserList[]>(`${this.BASE_URL}/lists/book/${id}/`)
+    return this.client.get<UserList[]>(`${this.BASE_URL}/lists/games/${id}/`)
   }
 
   
   getGameOfOther(listname:string, user_id: number): Observable<UserList[]>{
-    return this.client.get<UserList[]>(`${this.BASE_URL}/list/${listname}/books/${user_id}/`)
+    return this.client.get<UserList[]>(`${this.BASE_URL}/list/${listname}/games/${user_id}/`)
   }
   
   

@@ -42,7 +42,7 @@ export class TopBarComponent {
     this.loadUser();
     $('#search').autocomplete({
       source: (request: { term: string; }, response: (arg0: Game[]) => void) => {
-        this.gameService.getFindBooks(request.term).subscribe(data => {
+        this.gameService.getFindGames(request.term).subscribe(data => {
           response(data.filter((game) => game.title.indexOf(this.findGame) !== -1));
         });
       },
@@ -65,7 +65,7 @@ export class TopBarComponent {
     this.route.navigate(['/about']);
   }
   search() {
-    this.gameService.getFindBooks(this.findGame).subscribe((data) => {
+    this.gameService.getFindGames(this.findGame).subscribe((data) => {
       this.games = data;
     });
   }
