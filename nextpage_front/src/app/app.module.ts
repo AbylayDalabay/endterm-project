@@ -19,12 +19,12 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 // import { CatalogComponent } from './catalog/catalog.component';
 
-import { InfoBookComponent } from './info-book/info-book.component';
+import { InfoGameComponent } from './info-book/info-game.component';
 
-import { BookPageComponent } from './book-page/book-page.component';
-import { MyBookComponent } from './my-book/my-book.component';
+import { GamePageComponent} from './game-page/game-page.component';
+import { MyGameComponent } from './my-game/my-game.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
-import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
+import { CatalogGamesComponent } from './catalog-books/catalog-games.component';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
@@ -40,21 +40,20 @@ import { UserListComponent } from './user-list/user-list.component';
     SignUpPageComponent,
     SignInPageComponent,
     ReviewComponent,
-
+    
     HomePageComponent,
-
     AboutPageComponent,
     FooterComponent,
     ProfilePageComponent,
 
     // CatalogComponent,
-    InfoBookComponent,
+    InfoGameComponent,
     ReviewPageComponent,
     ManageAccountComponent,
-    MyBookComponent,
+    MyGameComponent,
     CatalogListComponent,
-    CatalogBooksComponent,
-    BookPageComponent,
+    CatalogGamesComponent,
+    GamePageComponent,
     PageNotFoundComponent,
     UserListComponent,
 

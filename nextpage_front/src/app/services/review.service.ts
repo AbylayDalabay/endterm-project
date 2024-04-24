@@ -13,18 +13,18 @@ export class ReviewService {
 
   constructor(private client: HttpClient) { }
   
-  getReviews(id_book: number): Observable<Review[]>{
-    return this.client.get<Review[]>(`${this.BASE_URL}/books/${id_book}/reviews`)
+  getReviews(id_game: number): Observable<Review[]>{
+    return this.client.get<Review[]>(`${this.BASE_URL}/books/${id_game}/reviews`)
   }
   getUser(){
     return this.client.get(`${this.BASE_URL}/current_user/`)
   }
-  postReview(review: string,rating:number, id_book: number, user_id: number){
-    return this.client.post<Review>(`${this.BASE_URL}/books/${id_book}/reviews`,{
-      review: review,rating:rating, user : user_id, book: id_book
+  postReview(review: string,rating:number, id_game: number, user_id: number){
+    return this.client.post<Review>(`${this.BASE_URL}/books/${id_game}/reviews`,{
+      review: review,rating:rating, user : user_id, game: id_game
     }).subscribe();
   } 
-  getRating(id_book: number){
-    return this.client.get<Rating>(`${this.BASE_URL}/books/${id_book}/rating`)
+  getRating(id_game: number){
+    return this.client.get<Rating>(`${this.BASE_URL}/books/${id_game}/rating`)
   }
 }

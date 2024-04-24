@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models.category import Category
-from .models.book import Book
+from .models.game import Game
 from .models.review import Review
 from .models.rating import Rating
 from .models.userlist import UserList
@@ -21,8 +21,8 @@ class ABCFilter(SimpleListFilter):
             ('sorted by author reversed',('sorted by author reversed')),
             ('sorted by category',('sorted by category')),
             ('sorted by category reversed',('sorted by category reversed')),
-            ('sorted by pages',('sorted by pages')),
-            ('sorted by pages reversed',('sorted by pages reversed'))
+            ('sorted by chapters',('sorted by chapters')),
+            ('sorted by chapters reversed',('sorted by chapters reversed'))
         )
     def queryset(self,request,queryset):
         if not self.value():
@@ -39,10 +39,10 @@ class ABCFilter(SimpleListFilter):
             return queryset.order_by('category__name')
         if self.value() == 'sorted by category reversed':
             return queryset.order_by('-category__name')
-        if self.value() == 'sorted by pages':
-            return queryset.order_by('pages')
-        if self.value() == 'sorted by pages reversed':
-            return queryset.order_by('-pages')
+        if self.value() == 'sorted by chapters':
+            return queryset.order_by('chapters')
+        if self.value() == 'sorted by chapters reversed':
+            return queryset.order_by('-chapters')
 class ABCFilterCategory(SimpleListFilter):
     title = 'alphabetically filter'
     parameter_name = 'alphabetically filter'
@@ -62,13 +62,13 @@ class ABCFilterCategory(SimpleListFilter):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id','name')
     list_filter = (ABCFilterCategory,)
-@admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
-    list_display = ('id','title','author','category','pages')
+@admin.register(Game)
+class GameAdmin(admin.ModelAdmin):
+    list_display = ('id','title','author','category','chapters')
     list_filter = (ABCFilter,)
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
-    list_display = ('id','book')
+    list_display = ('id','game')
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('id','review')

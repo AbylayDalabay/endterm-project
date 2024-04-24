@@ -8,11 +8,11 @@
 
     </div>
     <div class="block">
-      <input type="text" [(ngModel)]="findBook" placeholder="Search all books.." id="search" (input)="search()">
+      <input type="text" [(ngModel)]="findGame" placeholder="Search all books.." id="search" (input)="search()">
       <div>
-        <ul id="inBlock" *ngIf="findBook!=''">
-          <li *ngFor="let book of books">
-            <a routerLink="book/{{book.id}}" id="find">{{book.title}}</a>
+        <ul id="inBlock" *ngIf="findGame!=''">
+          <li *ngFor="let game of games">
+            <a routerLink="book/{{game.id}}" id="find">{{game.title}}</a>
           </li>
         </ul>
       </div>

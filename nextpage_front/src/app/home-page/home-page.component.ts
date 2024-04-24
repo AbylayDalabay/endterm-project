@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Book } from '../models/book'
+import { Game } from '../models/game'
 import { ActivatedRoute } from '@angular/router';
-import { BookService } from '../services/book.service';
+import { GameService } from '../services/game.service';
 import { UserList } from '../models/userlist';
 import { UserlistService } from '../services/userlist.service';
 import { UsersService } from '../services/users.service';
@@ -12,20 +12,20 @@ import { User } from '../models/user';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-    book : Book | undefined;
+    game : Game | undefined;
     id: number | undefined;
-    list : Book[] = [];
+    list : Game[] = [];
     user : User | undefined;
-    popular: Book[] = [];
-    recommendations: Book[] = [];
-    constructor(private route: ActivatedRoute, private bookService: BookService, private userList: UserlistService, private userService: UsersService){
+    popular: Game[] = [];
+    recommendations: Game[] = [];
+    constructor(private route: ActivatedRoute, private gameService:GameService, private userList: UserlistService, private userService: UsersService){
         
     }
     ngOnInit(): void{
       this.id = Number(this.route.snapshot.paramMap.get('id'));
-      this.userList.getBooksOfList('Reading').subscribe((books) => {
-        if(books.length > 0){
-          this.book = books[0]
+      this.userList.getGameOfList('Reading').subscribe((games) => {
+        if(games.length > 0){
+          this.game = games[0]
         }
       }
       );
@@ -33,17 +33,17 @@ export class HomePageComponent {
       this.getReco();
     }
     getCur(){
-      this.userList.getBooksOfList('Reading').subscribe((books) => {
-        if(books != undefined && books.length != 0){
-            this.book = books[0];
-            console.log(this.book)
+      this.userList.getGameOfList('Reading').subscribe((games) => {
+        if(games != undefined && games.length != 0){
+            this.game = games[0];
+            console.log(this.game)
         }
       })
     }
     getPopular(){
-      this.bookService.getRandomBooks().subscribe((pop) => this.popular = pop);
+      this.gameService.getRandomGames().subscribe((pop:any) => this.popular = pop);
     }
     getReco(){
-      this.bookService.getRandomBooks().subscribe((pop) => this.recommendations = pop);
+      this.gameService.getRandomGames().subscribe((pop:any) => this.recommendations = pop);
     }
 }

@@ -6,17 +6,16 @@ from rest_framework.response import Response
 # noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
 # noinspection PyUnresolvedReferences
-from api.serializers.book import BookSerializer2
 # noinspection PyUnresolvedReferences
 from api.models.category import Category
 # noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
 # noinspection PyUnresolvedReferences
-from api.serializers.book import BookSerializer2
+from api.serializers.game import GameSerializer2
 # noinspection PyUnresolvedReferences
 from api.models.category import Category
 # noinspection PyUnresolvedReferences
-from api.models.book import Book
+from api.models.game import Game
 
 
 
@@ -46,9 +45,9 @@ class CategoryDetailAPIView(APIView):
         except Category.DoesNotExist as e:
             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
-class BooksByCategoryAPIView(APIView):
+class GamesByCategoryAPIView(APIView):
     def get(self, request, category_id):
-        books = Book.objects.filter(category=category_id)
-        serializer = BookSerializer2(books, many=True)
+        games = Game.objects.filter(category=category_id)
+        serializer = GameSerializer2(games, many=True)
         return Response(serializer.data)
         

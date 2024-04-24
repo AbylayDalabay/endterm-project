@@ -1,0 +1,9 @@
+<p>{{category.name}}</p>
+<div class="main">
+        
+ 
+        <div *ngFor="let game of gameList" class="gamecard">
+                <a routerLink="/book/{{game.id}}"><img src="{{game.img}}" alt="{{game.title}}" class="gameimg"></a>
+                <a routerLink="/book/{{game.id}}"  class="gametitle">{{game.title}}<br>{{game.author}}</a>
+        </div>
+</div>

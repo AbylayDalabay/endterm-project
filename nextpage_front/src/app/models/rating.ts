@@ -1,12 +1,12 @@
-import { Book } from "./book";
+import { Game } from "./game";
 
 export class Rating {
         count : number;
         sum: number;
-        book: Book;
-        constructor(count: number,  sum: number, book: Book){
+        game: Game;
+        constructor(count: number,  sum: number, game:Game){
             this.count = count;
             this.sum = sum;
-            this.book = book;
+            this.game= game;
         }
 }

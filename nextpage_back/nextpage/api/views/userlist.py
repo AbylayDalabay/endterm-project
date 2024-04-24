@@ -7,20 +7,17 @@ from rest_framework.response import Response
 # noinspection PyUnresolvedReferences
 from api.serializers.category import CategorySerializer2
 # noinspection PyUnresolvedReferences
-from api.serializers.book import BookSerializer2
+from api.serializers.game import GameSerializer2
 # noinspection PyUnresolvedReferences
 from api.models.category import Category
 # noinspection PyUnresolvedReferences
-from api.models.book import Book
+from api.models.game import Game
 # noinspection PyUnresolvedReferences
 from api.models.userlist import UserList
 from django.contrib.auth.models import User
 # noinspection PyUnresolvedReferences
-from api.serializers.book import BookSerializer2
-# noinspection PyUnresolvedReferences
 from api.models.category import Category
 # noinspection PyUnresolvedReferences
-from api.models.book import Book
 # noinspection PyUnresolvedReferences
 from api.models.userlist import UserList
 from django.contrib.auth.models import User
@@ -61,7 +58,7 @@ class GetUsersListsAPI(APIView):
         return Response(serializer.data)
     
 
-class BookOneUserListAPI(APIView):
+class GameOneUserListAPI(APIView):
     def getListObject(self, list_name, user):
         try:
             return UserList.objects.get(name=list_name, user=user)
@@ -70,80 +67,80 @@ class BookOneUserListAPI(APIView):
         
     def getBook(self, id):
         try:
-            return Book.objects.get(pk=id)
-        except Book.DoesNotExist as e:
+            return Game.objects.get(pk=id)
+        except Game.DoesNotExist as e:
             return HttpResponse(status=404)
 
     def get(self, request, list_name):
         user = request.user
         userlist = self.getListObject(list_name, user)
-        books = userlist.books.all()
+        games = userlist.games.all()
         # if (books.count()==0):
         #     return JsonResponse({"not":"found"})
         # else:
             
-        serializer = BookSerializer2(books, many=True)
+        serializer = GameSerializer2(games, many=True)
         #     serializer = ListSerializer2(userlist)
         return Response(serializer.data)
     def post(self, request, list_name):
         data = json.loads(request.body)
 
-        book_id = data.get('book','')
-        book = self.getBook(book_id)
+        game_id = data.get('game','')
+        game = self.getBook(game_id)
         user = request.user
         userlist = self.getListObject(list_name, user)
-        userlist.books.add(book)
+        userlist.games.add(game)
         userlist.save()
         serializer = ListSerializer2(userlist)
         return Response(serializer.data)
     
     def delete(self, request, list_name) :
         data = json.loads(request.body)
-        book_id = data.get('book','')
-        book = self.getBook(book_id)
+        game_id = data.get('game','')
+        game = self.getBook(game_id)
         user = request.user
         userlist = self.getListObject(list_name, user)
-        userlist.books.remove(book)
+        userlist.games.remove(game)
         serializer = ListSerializer2(userlist)
         return Response(serializer.data)
 
 
 
-class ListOfBook(APIView):
-    def get(self, request, book_id):
-        book = Book.objects.get(pk=book_id)
-        ulist = book.userlist_set.all()
+class ListOfGames(APIView):
+    def get(self, request, game_id):
+        game = Game.objects.get(pk=game_id)
+        ulist = game.userlist_set.all()
         serializer = ListSerializer2(ulist, many=True)
         return Response(serializer.data)
     
 
-class BookOneOtherListAPI(APIView):
+class GameOneOtherListAPI(APIView):
     def getListObject(self, list_name, user):
         try:
             return UserList.objects.get(name=list_name, user=user)
         except User.DoesNotExist as e:
             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
         
-    def getBook(self, id):
+    def getGame(self, id):
         try:
-            return Book.objects.get(pk=id)
-        except Book.DoesNotExist as e:
+            return Game.objects.get(pk=id)
+        except Game.DoesNotExist as e:
             return HttpResponse(status=404)
 
     def get(self, request, list_name, user_id):
         user = User.objects.get(pk=user_id)
         userlist = self.getListObject(list_name, user)
-        books = userlist.books.all()
+        games = userlist.games.all()
 
         # if (books.count()==0):
         #     return JsonResponse({"not":"found"})
         # else:
 
-        if (books.count()==0):
-            return Response(books)
+        if (games.count()==0):
+            return Response(games)
         else:
             
-                serializer = BookSerializer2(books, many=True)
+                serializer = GameSerializer2(games, many=True)
         #     serializer = ListSerializer2(userlist)
                 return Response(serializer.data)
     

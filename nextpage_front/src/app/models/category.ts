@@ -9,15 +9,15 @@ export interface Category{
 export const categories = [
         {
                 id: 1,
-                name: "Novel"
+                name: "Horror"
         },
         {
                 id: 2,
-                name: "Comedy"
+                name: "Online"
         },
         {
                 id: 1,
-                name: "History"
+                name: "MMoRpg"
         }
 ]
 
@@ -29,11 +29,11 @@ export interface Catalog {
         userId: number;
 }
 
-export interface BookCatalogList{
+export interface GameCatalogList{
         id: number;
         userId: number;
         catalogId: number;
-        bookId: number; 
+        GameId: number; 
 }
 
 export const CATALOG_LISTS: Catalog[] = [

@@ -6,11 +6,11 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component'
 
-import { BookPageComponent } from './book-page/book-page.component';
-import { MyBookComponent } from './my-book/my-book.component';
-import { InfoBookComponent } from './info-book/info-book.component';
+import { GamePageComponent } from './game-page/game-page.component';
+import { MyGameComponent } from './my-game/my-game.component';
+import { InfoGameComponent } from './info-book/info-game.component';
 import { CatalogListComponent } from './catalog-list/catalog-list.component';
-import { CatalogBooksComponent } from './catalog-books/catalog-books.component';
+import { CatalogGamesComponent } from './catalog-books/catalog-games.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {ManageAccountComponent} from "./manage-account/manage-account.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
@@ -24,12 +24,12 @@ const routes: Routes = [
   {path: 'signup', component: SignUpPageComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'profile/:id', component: ProfilePageComponent},
-  {path: 'book', component: BookPageComponent},
+  {path: 'book', component: GamePageComponent},
   {path: 'profile', component: ProfilePageComponent,canActivate: [AuthGuard],},
-  {path: 'mybooks', component: MyBookComponent,canActivate: [AuthGuard],},
-  {path: 'book/:id', component: BookPageComponent,canActivate: [AuthGuard],},
+  {path: 'mybooks', component: MyGameComponent,canActivate: [AuthGuard],},
+  {path: 'book/:id', component: GamePageComponent,canActivate: [AuthGuard],},
   {path: 'catalogs', component: CatalogListComponent,canActivate: [AuthGuard],},
-  {path: 'catalogs/:id', component: CatalogBooksComponent,canActivate: [AuthGuard],},
+  {path: 'catalogs/:id', component: CatalogGamesComponent,canActivate: [AuthGuard],},
   {path: 'manage-account', component: ManageAccountComponent,canActivate: [AuthGuard],},
   {path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent },

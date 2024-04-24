@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {AuthToken} from "../models/authtoken";
 import {User} from "../models/user";
 
-import { Book } from '../models/book';
+import { Game } from '../models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +33,8 @@ export class UsersService {
       password,
     });
   }
-  getUserListBooks(query: string): Observable<Book[]>{
-    return this.http.get<Book[]>(`${this.BASE_URL}/list/${query}/books/`);
+  getUserListBooks(query: string): Observable<Game[]>{
+    return this.http.get<Game[]>(`${this.BASE_URL}/list/${query}/books/`);
   }
   getFindUsers(query: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.BASE_URL}/users/search/${query}/`);

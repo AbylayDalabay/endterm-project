@@ -51,12 +51,12 @@ div#right{
 div#rec{
     margin-top: 50px;
 }
-div#recBooks{
+div#recGames{
     margin-top: 80px;
     /* width: ; */
     margin-left: -13px;
 }
-#book{
+#game{
     width: 195px;
     height: 296px;
     margin-left: 13px;

@@ -23,7 +23,9 @@ h1 {
   /*margin: 0;*/
   /*background-color: lightpink;*/
 }
-
+.center img{
+  width: 150px;
+}
 /*-- main --*/
 .main-w3layouts {
   padding: 3em 0 1em;

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { UserList } from '../models/userlist';
 import { UserlistService } from '../services/userlist.service';
 import { ActivatedRoute } from '@angular/router';
-import { Book } from '../models/book';
+import { Game } from '../models/game';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -10,12 +10,12 @@ import { Book } from '../models/book';
 })
 export class UserListComponent implements OnInit{
   @Input() list: UserList ;
-  books : Book[] | undefined;
+  games! : Game[];
 
   constructor(private userListService: UserlistService, ) {
     this.list = {} as UserList;
     
-    // this.books = this.list.books
+    // this.games = this.list.games
   }
   ngOnInit(): void {
     this.getBooksOfList();
@@ -23,8 +23,8 @@ export class UserListComponent implements OnInit{
   
   
   getBooksOfList() {
-    this.userListService.getBooksOfList(this.list.name).subscribe((books) =>{
-      this.books = books;
+    this.userListService.getGameOfList(this.list.name).subscribe((games) =>{
+      this.games = games;
     })
   }
 }

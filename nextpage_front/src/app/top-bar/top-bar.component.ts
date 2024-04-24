@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 
-import { Book } from '../models/book';
+import { Game } from '../models/game';
 
-import { BookService } from '../services/book.service';
+import { GameService } from '../services/game.service';
 import {User} from "../models/user";
 import 'jqueryui';
 declare var $: any;
@@ -17,23 +17,23 @@ declare var $: any;
 export class TopBarComponent {
   
     check = false;
-    findBook : string = '';
-    books : Book[] | undefined;
-    // constructor(private bookService: bookService){
+    findGame : string = '';
+    games : Game[] | undefined;
+    // constructor(private gameService: gameService){
     user: User;
     // }
     showBar(){
       this.check = !this.check;
     }
     // addCompany(){
-    //   this.bookService.findBook(this.findBook).subscribe((book) => {
+    //   this.gameService.findBook(this.findBook).subscribe((book) => {
     //     if(book.name == this.findBook){
 
     //     }
     //   })
     // }
   logged = false;
-  constructor(private route: Router,private bookService: BookService) {
+  constructor(private route: Router,private gameService:GameService) {
     // @ts-ignore
     this.user = this.user;
 
@@ -41,14 +41,14 @@ export class TopBarComponent {
   ngOnInit(): void {
     this.loadUser();
     $('#search').autocomplete({
-      source: (request: { term: string; }, response: (arg0: Book[]) => void) => {
-        this.bookService.getFindBooks(request.term).subscribe(data => {
-          response(data.filter((book) => book.title.indexOf(this.findBook) !== -1));
+      source: (request: { term: string; }, response: (arg0: Game[]) => void) => {
+        this.gameService.getFindBooks(request.term).subscribe(data => {
+          response(data.filter((game) => game.title.indexOf(this.findGame) !== -1));
         });
       },
       minLength: 3,
       select: ( ui: { item: { title: string; }; }) => {
-        this.findBook = ui.item.title;
+        this.findGame = ui.item.title;
       }
     });
   }
@@ -65,8 +65,8 @@ export class TopBarComponent {
     this.route.navigate(['/about']);
   }
   search() {
-    this.bookService.getFindBooks(this.findBook).subscribe((data) => {
-      this.books = data;
+    this.gameService.getFindBooks(this.findGame).subscribe((data) => {
+      this.games = data;
     });
   }
 }
