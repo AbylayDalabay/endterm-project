@@ -9,11 +9,13 @@ from django.http.response import HttpResponse, JsonResponse
 # noinspection PyUnresolvedReferences
 from api.serializers.book import BookSerializer2
 from rest_framework.views import APIView
+from rest_framework import status
+
 import random
 # noinspection PyUnresolvedReferences
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-@api_view(['GET'])
+@api_view(['GET','POST'])
 def books(request):
     if request.method == 'GET':
         books = Book.objects.all()
@@ -21,6 +23,13 @@ def books(request):
         return Response(
             serializer.data
         )
+    if request.method == 'POST':
+        serializer = BookSerializer2(data=request.data)  # or BookSerializer2 depending on your needs
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 def get_random_books(request):
     total_books = Book.objects.count()
     random_ids = [random.randrange(total_books) for i in range(3)]
