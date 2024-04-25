@@ -5,7 +5,10 @@ Gameforces GameForces is an online platform created as part of a university proj
 Game Search: Find games based on genre, platform, developer, and more.
 Ratings and Reviews: Provide ratings and reviews for games, and read opinions from other players to make informed decisions.
 News and Updates: Stay informed with the latest gaming news, updates, and announcements from the gaming industry.
-Абылай Далабай Мырзаханқызы Арайлым Серикбаева Аружан
+
+Абылай Далабай 
+Мырзаханқызы Арайлым 
+Серикбаева Аружан
 
 This project was generated with Angular CLI version 17.3.2.
 
