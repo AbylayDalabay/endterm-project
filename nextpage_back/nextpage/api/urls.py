@@ -38,7 +38,7 @@ urlpatterns = [
     path('categories/', category.CategoryListAPIView.as_view()),
     path('categories/<int:category_id>/', category.CategoryDetailAPIView.as_view()),
     path("categories/<int:category_id>/games/", category.GamesByCategoryAPIView.as_view()),
-    path('ist/<int:user_id>/<int:list_id>/games/', UserListAPI.as_view()),
+    path('list/<int:user_id>/<int:list_id>/games/', UserListAPI.as_view()),
     path('list/<int:list_id>/games/', userlist.UserListDetailAPI.as_view()),
     path('lists/game/<int:game_id>/', userlist.ListOfGames.as_view()),
     path('list/<str:list_name>/games/', userlist.GameOneUserListAPI.as_view()),
