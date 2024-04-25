@@ -14,7 +14,7 @@ declare var $: any;
   styleUrls: ['./top-bar.component.css']
 })
 
-export class TopBarComponent {
+export class TopBarComponent{
   
     check = false;
     findGame : string = '';
