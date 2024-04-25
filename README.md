@@ -1,4 +1,5 @@
-EndtermProject
+Endterm Project
+
 Gameforces GameForces is an online platform created as part of a university project, serving as a central hub for gamers within the university community. It provides a space where students passionate about video games can come together to connect, share experiences, and collaborate on various gaming-related activities.
 
 Game Search: Find games based on genre, platform, developer, and more.
