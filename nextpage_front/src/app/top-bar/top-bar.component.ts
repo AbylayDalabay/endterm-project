@@ -25,19 +25,16 @@ export class TopBarComponent {
     showBar(){
       this.check = !this.check;
     }
-    // addCompany(){
-    //   this.bookService.findBook(this.findBook).subscribe((book) => {
-    //     if(book.name == this.findBook){
-
-    //     }
-    //   })
-    // }
-  logged = false;
-  constructor(private route: Router,private bookService: BookService) {
-    // @ts-ignore
-    this.user = this.user;
-
-  }
+    logged = false;
+    constructor(private route: Router,private bookService: BookService) {
+      // @ts-ignore
+      this.user = this.user;
+      console.log(this.user)
+      
+    }
+    public navigateToProfile(id:number){
+      this.route.navigate(['/profile',id])
+    }
   ngOnInit(): void {
     this.loadUser();
     $('#search').autocomplete({

@@ -22,6 +22,7 @@ export class ProfilePageComponent implements OnInit{
       constructor(private usersService: UsersService, private logService: LogService, private route: Router,private routed: ActivatedRoute,private userList: UserlistService) {
     // @ts-ignore
     this.user = this.user;
+
     }
     
     ngOnInit(): void {
@@ -114,7 +115,7 @@ export class ProfilePageComponent implements OnInit{
   }
   getUser(): void {
 
-    this.usersService.getProfile().subscribe(user => {
+    this.usersService.getUserById(this.id).subscribe(user => {
       this.user = user;
     }, error => {
       this.errorMessage = error.message;

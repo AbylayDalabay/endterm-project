@@ -22,7 +22,6 @@ const routes: Routes = [
   {path: 'about',component: AboutPageComponent},
   {path: 'signin',component: SignInPageComponent},
   {path: 'signup', component: SignUpPageComponent},
-  {path: 'profile', component: ProfilePageComponent},
   {path: 'profile/:id', component: ProfilePageComponent},
   {path: 'book', component: BookPageComponent},
   {path: 'profile', component: ProfilePageComponent,canActivate: [AuthGuard],},
